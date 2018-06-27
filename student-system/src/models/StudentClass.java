@@ -1,5 +1,5 @@
 package models;
 
 public class StudentClass {
-    //List<Student> students;
+    //private List<Student> students;
 }

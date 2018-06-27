@@ -1,6 +1,6 @@
 Abstract class - Person
 
-    Fields: 	String firstName, 
+    Fields: String firstName, 
 		String lastName, 
 		String phoneNumber, 
 		String email

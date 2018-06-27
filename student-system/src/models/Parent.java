@@ -1,7 +1,16 @@
 package models;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Parent extends Person {
-    //List<Student> children;
+    //private List<Student> children;
+    private List<String> notifications;
+
+    public Parent() {
+        //children = new ArrayList<>();
+        notifications = new ArrayList<>();
+    }
 
     @Override
     protected void showInfo() {
@@ -9,4 +18,8 @@ public class Parent extends Person {
         System.out.printf("Phone number: %s\n", super.getPhoneNumber());
         System.out.printf("Email: %s", super.getEmail());
     }
+
+//    protected void showStudentInfo(Student student) {
+//        TODO
+//    }
 }

@@ -8,7 +8,7 @@ public abstract class Person {
 
     protected abstract void showInfo();
 
-    public String getFirstName() {
+    String getFirstName() {
         return firstName;
     }
 
@@ -16,7 +16,7 @@ public abstract class Person {
         this.firstName = firstName;
     }
 
-    public String getLastName() {
+    String getLastName() {
         return lastName;
     }
 
@@ -24,7 +24,7 @@ public abstract class Person {
         this.lastName = lastName;
     }
 
-    public String getPhoneNumber() {
+    String getPhoneNumber() {
         return phoneNumber;
     }
 
@@ -32,7 +32,7 @@ public abstract class Person {
         this.phoneNumber = phoneNumber;
     }
 
-    public String getEmail() {
+    String getEmail() {
         return email;
     }
 
