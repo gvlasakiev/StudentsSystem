@@ -79,9 +79,6 @@ public class Student extends Person {
         this.subjectGrade = subjectGrade;
     }
 
-
-<<<<<<< HEAD
-=======
     public StudentClass getStudentClass() {
         return studentClass;
     }
@@ -98,8 +95,6 @@ public class Student extends Person {
         Student.excusedAbsences = excusedAbsences;
     }
 
-
->>>>>>> ba250dc07edf25dc6d8e02f17161860a41d8410e
     /*
     Print all student grades by particular subject
      */
