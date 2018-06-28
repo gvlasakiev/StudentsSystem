@@ -77,4 +77,12 @@ public class Student extends Person {
     public void setSubjectGrade(Map<Subject, List<Grade>> subjectGrade) {
         this.subjectGrade = subjectGrade;
     }
+
+    public void showRemarks() {
+        System.out.println("Show Remarks:");
+        for (int a = 0; a < remarks.size() ;a++) {
+            System.out.println(remarks.get(a));
+        }
+    }
+
 }
