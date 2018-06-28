@@ -19,8 +19,14 @@ public class Parent extends Person {
         System.out.printf("Email: %s", super.getEmail());
     }
 
-    protected void showStudentInfo(Student student) {
+    public void showStudentInfo(Student student) {
         System.out.println(student.toString());
+    }
+
+    public void showNotifications() {
+        for (String notification : notifications) {
+            System.out.println(notification);
+        }
     }
 
     public List<Student> getChildren() {

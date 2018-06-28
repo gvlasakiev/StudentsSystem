@@ -70,8 +70,12 @@ public class Student extends Person {
         this.subjectGrade = subjectGrade;
     }
 
+    /*
+    Print all student grades by particular subject
+     */
     public void showGrades() {
         System.out.println("Grades:");
+        // Can use Streaming API here
         for (Map.Entry<Subject, List<Grade>> subjectListEntry : subjectGrade.entrySet()) {
             System.out.print(subjectListEntry.getKey() + " - ");
 
