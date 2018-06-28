@@ -69,15 +69,15 @@ public class Teacher extends Person {
 		}
 		return false;
 	}
-	
-	//Show grades for each class in studentClass
+
+	// Show grades for each class in studentClass
 	public void printGrades(StudentClass studentClass, Subject subject) {
 		System.out.println("Subject: " + subject);
 		System.out.println("Showing grades for " + studentClass + " :");
 		for (Student student : studentClass.getStudents()) {
 			System.out.print(student.getFirstName() + " " + student.getLastName() + " ");
 			System.out.println(student.getSubjectGrade().get(subject).toString());
-			
+
 		}
 	}
 }

@@ -9,7 +9,7 @@ import java.util.Map;
 import java.util.*;
 
 public class Student extends Person {
-    private String eng;
+    private String egn;
     private int classNumber;
     private Parent parent;
     private List<String> remarks;
@@ -29,7 +29,7 @@ public class Student extends Person {
     private static int unvaccinatedAbsences = 0;
 
     public Student(String egn, int classNumber, Parent parent, List<String> remarks, List<Subject> subjects, Map<Subject, List<Grade>> subjectGrade, StudentClass studentClass) {
-        setEng(egn);
+        setEgn(egn);
         setClassNumber(classNumber);
         setParent(parent);
         setStudentClass(studentClass);
@@ -39,12 +39,12 @@ public class Student extends Person {
     }
 
 
-    public String getEng() {
-        return eng;
+    public String getEgn() {
+        return egn;
     }
 
-    private void setEng(String eng) {
-        this.eng = eng;
+    private void setEgn(String egn) {
+        this.egn = egn;
     }
 
     public int getClassNumber() {
