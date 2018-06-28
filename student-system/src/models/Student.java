@@ -62,7 +62,7 @@ public class Student extends Person {
         this.remarks = remarks;
     }
 
-    public Map<Subject, List<Grade>> getSubjectGrade() {
+    Map<Subject, List<Grade>> getSubjectGrade() {
         return subjectGrade;
     }
 
@@ -80,6 +80,13 @@ public class Student extends Person {
             }
 
             System.out.println();
+        }
+    }
+
+    public void showRemarks() {
+        System.out.println("Show Remarks:");
+        for (int a = 0; a < remarks.size() ;a++) {
+            System.out.println(remarks.get(a));
         }
     }
 }

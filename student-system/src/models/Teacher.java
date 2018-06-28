@@ -43,5 +43,12 @@ public class Teacher extends Person {
 	public ArrayList<Subject> getListOfSubjects() {
 		return listOfSubjects;
 	}
-
+	
+	public void addGrade(Student student, Subject subject, Grade grade){
+		//Check here if teacher has this student in the listOfClasses and subject in listOfSubjects
+		
+		if(student.getSubjectGrade().containsKey(subject)) {
+			student.getSubjectGrade().get(subject).add(grade);
+		}
+	}
 }
