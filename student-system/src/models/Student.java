@@ -10,8 +10,11 @@ public class Student extends Person {
     private int classNumber;
     private Parent parent;
     private List<String> remarks;
+    private StudentClass studentClass;
     //private List<Subject> subjects;
     private Map<Subject, List<Grade>> subjectGrade;
+    public static int excusedAbsences = 0;
+    public static int unvaccinatedAbsences = 0;
 
     public Student(String egn, int classNumber, Parent parent, List<String> remarks, List<Subject> subjects, Map<Subject, List<Grade>> subjectGrade) {
         setEng(egn);
@@ -83,10 +86,23 @@ public class Student extends Person {
         }
     }
 
+    public void showAbsences() {
+        System.out.println("Excused Absences: "+excusedAbsences);
+        System.out.println("Unvaccinated Absences"+unvaccinatedAbsences);
+    }
+
     public void showRemarks() {
         System.out.println("Show Remarks:");
-        for (int a = 0; a < remarks.size() ;a++) {
-            System.out.println(remarks.get(a));
+        for (String remark : remarks) {
+            System.out.println(remark);
         }
+    }
+
+    public StudentClass getStudentClass() {
+        return studentClass;
+    }
+
+    public void setStudentClass(StudentClass studentClass) {
+        this.studentClass = studentClass;
     }
 }
