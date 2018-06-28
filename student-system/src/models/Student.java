@@ -1,9 +1,12 @@
 package models;
 
+import com.sun.org.apache.xpath.internal.operations.String;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.*;
 
 public class Student extends Person {
     private String eng;
@@ -13,25 +16,28 @@ public class Student extends Person {
     private StudentClass studentClass;
     //private List<Subject> subjects;
     private Map<Subject, List<Grade>> subjectGrade;
-    public static int excusedAbsences = 0;
-    public static int unvaccinatedAbsences = 0;
 
-    public Student(String egn, int classNumber, Parent parent, List<String> remarks, List<Subject> subjects, Map<Subject, List<Grade>> subjectGrade) {
+    public static int getUnvaccinatedAbsences() {
+        return unvaccinatedAbsences;
+    }
+
+    public static void setUnvaccinatedAbsences(int unvaccinatedAbsences) {
+        Student.unvaccinatedAbsences = unvaccinatedAbsences;
+    }
+
+    private static int excusedAbsences = 0;
+    private static int unvaccinatedAbsences = 0;
+
+    public Student(String egn, int classNumber, Parent parent, List<String> remarks, List<Subject> subjects, Map<Subject, List<Grade>> subjectGrade, StudentClass studentClass) {
         setEng(egn);
         setClassNumber(classNumber);
         setParent(parent);
+        setStudentClass(studentClass);
         remarks = new ArrayList<String>();
         subjects = new ArrayList<Subject>();
         subjectGrade = new HashMap<Subject, List<Grade>>();
     }
 
-
-    @Override
-    protected void showInfo() {
-        System.out.printf("Full name: %s %s\n", super.getFirstName(), super.getLastName());
-        System.out.printf("Phone number: %s\n", super.getPhoneNumber());
-        System.out.printf("Email: %s", super.getEmail());
-    }
 
     public String getEng() {
         return eng;
@@ -74,6 +80,26 @@ public class Student extends Person {
     }
 
 
+<<<<<<< HEAD
+=======
+    public StudentClass getStudentClass() {
+        return studentClass;
+    }
+
+    public void setStudentClass(StudentClass studentClass) {
+        this.studentClass = studentClass;
+    }
+
+    public static int getExcusedAbsences() {
+        return excusedAbsences;
+    }
+
+    public static void setExcusedAbsences(int excusedAbsences) {
+        Student.excusedAbsences = excusedAbsences;
+    }
+
+
+>>>>>>> ba250dc07edf25dc6d8e02f17161860a41d8410e
     /*
     Print all student grades by particular subject
      */
@@ -91,6 +117,13 @@ public class Student extends Person {
         }
     }
 
+    @Override
+    protected void showInfo() {
+        System.out.printf("Full name: %s %s\n", super.getFirstName(), super.getLastName());
+        System.out.printf("Phone number: %s\n", super.getPhoneNumber());
+        System.out.printf("Email: %s", super.getEmail());
+    }
+
     public void showAbsences() {
         System.out.println("Excused Absences: "+excusedAbsences);
         System.out.println("Unvaccinated Absences"+unvaccinatedAbsences);
@@ -103,11 +136,11 @@ public class Student extends Person {
         }
     }
 
-    public StudentClass getStudentClass() {
-        return studentClass;
+    public void showAll() {
+        showInfo();
+        showGrades();
+        showRemarks();
+        showAbsences();
     }
 
-    public void setStudentClass(StudentClass studentClass) {
-        this.studentClass = studentClass;
-    }
 }
