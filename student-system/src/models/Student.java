@@ -10,7 +10,7 @@ public class Student extends Person {
     private int classNumber;
     private Parent parent;
     private List<String> remarks;
-    private List<Subject> subjects;
+    //private List<Subject> subjects;
     private Map<Subject, List<Grade>> subjectGrade;
 
     public Student(String egn, int classNumber, Parent parent, List<String> remarks, List<Subject> subjects, Map<Subject, List<Grade>> subjectGrade) {
@@ -62,19 +62,24 @@ public class Student extends Person {
         this.remarks = remarks;
     }
 
-    public List<Subject> getSubjects() {
-        return subjects;
-    }
-
-    public void setSubjects(List<Subject> subjects) {
-        this.subjects = subjects;
-    }
-
     public Map<Subject, List<Grade>> getSubjectGrade() {
         return subjectGrade;
     }
 
     public void setSubjectGrade(Map<Subject, List<Grade>> subjectGrade) {
         this.subjectGrade = subjectGrade;
+    }
+
+    public void showGrades() {
+        System.out.println("Grades:");
+        for (Map.Entry<Subject, List<Grade>> subjectListEntry : subjectGrade.entrySet()) {
+            System.out.print(subjectListEntry.getKey() + " - ");
+
+            for (Grade grade : subjectListEntry.getValue()) {
+                System.out.print(grade + " ");
+            }
+
+            System.out.println();
+        }
     }
 }
