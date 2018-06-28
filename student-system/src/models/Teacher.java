@@ -1,6 +1,7 @@
 package models;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 
 public class Teacher extends Person {
@@ -8,7 +9,7 @@ public class Teacher extends Person {
 	private ArrayList<StudentClass> listOfClasses;
 	private ArrayList<Subject> listOfSubjects;
 	
-	//private Map<StudentClass, Subject> listOfClasses;
+	private Map<StudentClass, Subject> studentClassSubjects;
 	
 	public Teacher(){
 		super();

@@ -4,11 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Parent extends Person {
-    //private List<Student> children;
+    private List<Student> children;
     private List<String> notifications;
 
     public Parent() {
-        //children = new ArrayList<>();
+        children = new ArrayList<>();
         notifications = new ArrayList<>();
     }
 
@@ -19,7 +19,19 @@ public class Parent extends Person {
         System.out.printf("Email: %s", super.getEmail());
     }
 
-//    protected void showStudentInfo(Student student) {
-//        TODO
-//    }
+    protected void showStudentInfo(Student student) {
+        System.out.println(student.toString());
+    }
+
+    public List<Student> getChildren() {
+        return children;
+    }
+
+    public void setChildren(List<Student> children) {
+        this.children = children;
+    }
+
+    public List<String> getNotifications() {
+        return notifications;
+    }
 }
