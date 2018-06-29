@@ -33,7 +33,6 @@ public class Main {
         }
 
         System.out.println("-----------------------");
-
         // Print all children for specific parent
         for (Student child : parent.getChildren()) {
             System.out.printf("%s %s in %s class with %s egn\n",
@@ -41,7 +40,6 @@ public class Main {
         }
 
         System.out.println("\n-----------------------");
-
         // Send invitation to all parent in elevenB student class.
         teacher.sendInvitation(elevenB);
 
@@ -54,13 +52,13 @@ public class Main {
             }
         }
 
-        Parent newParent = new Parent("Ivan", "Ivanov","0888441122", "ivan_petrov@gmail.com");
-        StudentClass studentClass  = new StudentClass("2A");
-        Student student = new Student("Pesho", "Petrov", "0888550033","ivan_petrov@gmail.com", "7701020570", 4, newParent, studentClass);
+        System.out.println("\n-----------------------");
+        // Show parent info
+        parent.showInfo();
+        System.out.println();
+        peshoParent.showInfo();
 
-        Teacher newTeacher = new Teacher("Kiril", "Ivanov", "0899124355", "kiril@gmail.com");
-
-        newTeacher.showInfo();
-
+        System.out.println("\n-----------------------");
+        parent.showStudentInfo();
     }
 }
