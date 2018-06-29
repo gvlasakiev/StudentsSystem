@@ -31,10 +31,10 @@ public class Parent extends Person {
         this(firstName, lastName, phoneNumber, "");
     }
 
-    Parent(String firstName, String lastName, String phoneName, String email) {
+    Parent(String firstName, String lastName, String phoneNumber, String email) {
         super.setFirstName(firstName);
         super.setLastName(lastName);
-        super.setPhoneNumber(phoneName);
+        super.setPhoneNumber(phoneNumber);
         super.setEmail(email);
         children = new ArrayList<>();
         readNotifications = new ArrayList<>();
@@ -69,7 +69,7 @@ public class Parent extends Person {
     }
 
 
-    public List<Student> getChildren() {
+    List<Student> getChildren() {
         return children;
     }
 

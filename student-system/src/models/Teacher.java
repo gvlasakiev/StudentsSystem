@@ -10,10 +10,10 @@ public class Teacher extends Person implements Evaluation {
 
 	private Map<StudentClass, Subject> studentClassSubjects;
 
-	public Teacher(String firstName, String lastName, String phoneName, String email) {
+	public Teacher(String firstName, String lastName, String phoneNumber, String email) {
 		super.setFirstName(firstName);
 		super.setLastName(lastName);
-		super.setPhoneNumber(phoneName);
+		super.setPhoneNumber(phoneNumber);
 		super.setEmail(email);
 		listOfClasses = new ArrayList<>();
 		listOfSubjects = new ArrayList<>();
