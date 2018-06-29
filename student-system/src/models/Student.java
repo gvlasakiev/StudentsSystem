@@ -142,5 +142,11 @@ public class Student extends Person {
         showRemarks();
         showAbsences();
     }
+    
+    @Override 
+    public String toString(){
+    	return super.getFirstName() + " " + super.getLastName();
+    	
+    }
 
 }
