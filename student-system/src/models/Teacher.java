@@ -37,6 +37,10 @@ public class Teacher extends Person implements Evaluation {
 
 	}
 
+	public void setListOfClasses(ArrayList<StudentClass> listOfClasses) { this.listOfClasses = listOfClasses; }
+
+	public void setListOfSubjects(ArrayList<Subject> listOfSubjects) { this.listOfSubjects = listOfSubjects; }
+
 	public ArrayList<StudentClass> getListOfClasses() {
 		return listOfClasses;
 	}
