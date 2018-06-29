@@ -11,22 +11,6 @@ public class Parent extends Person {
     private List<String> readNotifications;
     private Deque<String> unreadNotification;
 
-    public List<String> getReadNotifications() {
-        return readNotifications;
-    }
-
-    public void setReadNotifications(List<String> readNotifications) {
-        this.readNotifications = readNotifications;
-    }
-
-    Deque<String> getUnreadNotification() {
-        return unreadNotification;
-    }
-
-    public void setUnreadNotification(Deque<String> unreadNotification) {
-        this.unreadNotification = unreadNotification;
-    }
-
     Parent(String firstName, String lastName, String phoneNumber) {
         this(firstName, lastName, phoneNumber, "");
     }
@@ -39,6 +23,22 @@ public class Parent extends Person {
         children = new ArrayList<>();
         readNotifications = new ArrayList<>();
         unreadNotification = new ArrayDeque<>();
+    }
+
+//    public List<String> getReadNotifications() {
+//        return readNotifications;
+//    }
+//
+//    public void setReadNotifications(List<String> readNotifications) {
+//        this.readNotifications = readNotifications;
+//    }
+
+    Deque<String> getUnreadNotification() {
+        return unreadNotification;
+    }
+
+    public void setUnreadNotification(Deque<String> unreadNotification) {
+        this.unreadNotification = unreadNotification;
     }
 
     @Override

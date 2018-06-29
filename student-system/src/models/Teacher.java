@@ -37,17 +37,17 @@ public class Teacher extends Person implements Evaluation {
 
 	}
 
-	public void setListOfClasses(HashSet<StudentClass> listOfClasses) { this.listOfClasses = listOfClasses; }
+//	public void setListOfClasses(HashSet<StudentClass> listOfClasses) { this.listOfClasses = listOfClasses; }
+//
+//	public void setListOfSubjects(ArrayList<Subject> listOfSubjects) { this.listOfSubjects = listOfSubjects; }
 
-	public void setListOfSubjects(ArrayList<Subject> listOfSubjects) { this.listOfSubjects = listOfSubjects; }
-
-	public HashSet<StudentClass> getListOfClasses() {
+	HashSet<StudentClass> getListOfClasses() {
 		return listOfClasses;
 	}
 
-	public ArrayList<Subject> getListOfSubjects() {
-		return listOfSubjects;
-	}
+//	public ArrayList<Subject> getListOfSubjects() {
+//		return listOfSubjects;
+//	}
 
 	@Override
 	public void addGrade(Student student, Subject subject, Grade grade) {
@@ -83,12 +83,17 @@ public class Teacher extends Person implements Evaluation {
 	/*
 	Send invitation for parent meeting to all student parents in particular student class.
 	 */
-	public void sendInvitation(StudentClass studentClass) {
+	void sendInvitation(StudentClass studentClass) {
 		for (Student student : studentClass.getStudents()) {
 			Parent currentParent = student.getParent();
 			String message = String.format("Hello, Mr/Ms %s. I want to invite you at our school " +
 					"for parent meeting on Friday.", currentParent.getLastName());
 			currentParent.getUnreadNotification().push(message);
 		}
+	}
+
+	@Override
+	public String toString(){
+		return super.getFirstName() + " " + super.getLastName();
 	}
 }

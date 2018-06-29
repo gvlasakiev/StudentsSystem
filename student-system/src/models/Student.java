@@ -22,8 +22,8 @@ public class Student extends Person {
         super.setPhoneNumber(phoneNumber);
         super.setEmail(email);
 
-        setEgn(egn);
-        setClassNumber(classNumber);
+//        setEgn(egn);
+//        setClassNumber(classNumber);
         setParent(parent);
         setStudentClass(studentClass);
         remarks = new ArrayList<String>();
@@ -36,29 +36,29 @@ public class Student extends Person {
         studentClass.getStudents().add(this);
     }
 
-    public static int getUnvaccinatedAbsences() {
-        return unvaccinatedAbsences;
-    }
+//    public static int getUnvaccinatedAbsences() {
+//        return unvaccinatedAbsences;
+//    }
+//
+//    public static void setUnvaccinatedAbsences(int unvaccinatedAbsences) {
+//        Student.unvaccinatedAbsences = unvaccinatedAbsences;
+//    }
+//
+//    public String getEgn() {
+//        return egn;
+//    }
+//
+//    private void setEgn(String egn) {
+//        this.egn = egn;
+//    }
 
-    public static void setUnvaccinatedAbsences(int unvaccinatedAbsences) {
-        Student.unvaccinatedAbsences = unvaccinatedAbsences;
-    }
-
-    public String getEgn() {
-        return egn;
-    }
-
-    private void setEgn(String egn) {
-        this.egn = egn;
-    }
-
-    public int getClassNumber() {
-        return classNumber;
-    }
-
-    private void setClassNumber(int classNumber) {
-        this.classNumber = classNumber;
-    }
+//    public int getClassNumber() {
+//        return classNumber;
+//    }
+//
+//    private void setClassNumber(int classNumber) {
+//        this.classNumber = classNumber;
+//    }
 
     Parent getParent() {
         return parent;
@@ -68,21 +68,21 @@ public class Student extends Person {
         this.parent = parent;
     }
 
-    public List<String> getRemarks() {
-        return remarks;
-    }
+//    public List<String> getRemarks() {
+//        return remarks;
+//    }
+//
+//    public void setRemarks(List<String> remarks) {
+//        this.remarks = remarks;
+//    }
 
-    public void setRemarks(List<String> remarks) {
-        this.remarks = remarks;
-    }
-
-    Map<Subject, List<Grade>> getSubjectGrade() {
-        return subjectGrade;
-    }
-
-    public void setSubjectGrade(Map<Subject, List<Grade>> subjectGrade) {
-        this.subjectGrade = subjectGrade;
-    }
+//    Map<Subject, List<Grade>> getSubjectGrade() {
+//        return subjectGrade;
+//    }
+//
+//    public void setSubjectGrade(Map<Subject, List<Grade>> subjectGrade) {
+//        this.subjectGrade = subjectGrade;
+//    }
 
     StudentClass getStudentClass() {
         return studentClass;
@@ -92,30 +92,30 @@ public class Student extends Person {
         this.studentClass = studentClass;
     }
 
-    public static int getExcusedAbsences() {
-        return excusedAbsences;
-    }
-
-    public static void setExcusedAbsences(int excusedAbsences) {
-        Student.excusedAbsences = excusedAbsences;
-    }
+//    public static int getExcusedAbsences() {
+//        return excusedAbsences;
+//    }
+//
+//    public static void setExcusedAbsences(int excusedAbsences) {
+//        Student.excusedAbsences = excusedAbsences;
+//    }
 
     /*
     Print all student grades by particular subject
      */
-    public void showGrades() {
-        System.out.println("Grades:");
-        // Can use Streaming API here
-        for (Map.Entry<Subject, List<Grade>> subjectListEntry : subjectGrade.entrySet()) {
-            System.out.print(subjectListEntry.getKey() + " - ");
-
-            for (Grade grade : subjectListEntry.getValue()) {
-                System.out.print(grade + " ");
-            }
-
-            System.out.println();
-        }
-    }
+//    public void showGrades() {
+//        System.out.println("Grades:");
+//        // Can use Streaming API here
+//        for (Map.Entry<Subject, List<Grade>> subjectListEntry : subjectGrade.entrySet()) {
+//            System.out.print(subjectListEntry.getKey() + " - ");
+//
+//            for (Grade grade : subjectListEntry.getValue()) {
+//                System.out.print(grade + " ");
+//            }
+//
+//            System.out.println();
+//        }
+//    }
 
     @Override
     protected void showInfo() {
@@ -124,27 +124,27 @@ public class Student extends Person {
         System.out.printf("Email: %s", super.getEmail());
     }
 
-    public void showAbsences() {
-        System.out.println("Excused Absences: "+excusedAbsences);
-        System.out.println("Unvaccinated Absences"+unvaccinatedAbsences);
-    }
+//    public void showAbsences() {
+//        System.out.println("Excused Absences: "+excusedAbsences);
+//        System.out.println("Unvaccinated Absences"+unvaccinatedAbsences);
+//    }
+//
+//    public void showRemarks() {
+//        System.out.println("Show Remarks:");
+//        for (String remark : remarks) {
+//            System.out.println(remark);
+//        }
+//    }
 
-    public void showRemarks() {
-        System.out.println("Show Remarks:");
-        for (String remark : remarks) {
-            System.out.println(remark);
-        }
-    }
-
-    public void showAll() {
-        showInfo();
-        showGrades();
-        showRemarks();
-        showAbsences();
-    }
+//    public void showAll() {
+//        showInfo();
+//        showGrades();
+//        showRemarks();
+//        showAbsences();
+//    }
     
-    @Override 
+    @Override
     public String toString(){
-    	return super.getFirstName() + " " + super.getLastName();
+        return super.getFirstName() + " " + super.getLastName();
     }
 }
