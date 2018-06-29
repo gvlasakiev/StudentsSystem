@@ -10,7 +10,7 @@ class StudentClass {
         students = new ArrayList<>();
     }
 
-    public List<Student> getStudents() {
+    List<Student> getStudents() {
         return students;
     }
 
