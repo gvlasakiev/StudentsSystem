@@ -74,7 +74,7 @@ public class Teacher extends Person {
 	public void printGrades(StudentClass studentClass, Subject subject) {
 		if (this.listOfClasses.contains(studentClass) && this.listOfSubjects.contains(subject)) {
 			System.out.println("Subject: " + subject);
-			System.out.println("Showing grades for " + studentClass + " :");
+			System.out.println("Showing grades for " + studentClass.getName() + " :");
 			for (Student student : studentClass.getStudents()) {
 				System.out.print(student.getFirstName() + " " + student.getLastName() + " ");
 				System.out.println(student.getSubjectGrade().get(subject).toString());
