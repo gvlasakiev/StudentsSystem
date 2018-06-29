@@ -45,10 +45,20 @@ public class Parent extends Person {
     }
 
     public void showUnreadNotifications() {
+<<<<<<< HEAD
         // Can use Stream API here
         for (String notification : unreadNotification) {
             System.out.println(notification);
         }
+=======
+    // Exception
+     while (!unreadNotification.isEmpty()) {
+         String currentNotification = unreadNotification.pop();
+         System.out.println(currentNotification);
+         readNotifications.add(currentNotification);
+     }
+
+>>>>>>> e628e4cfe670998f4cd37af255e7adee80196d74
     }
 
     public void showReadNotifications() {
