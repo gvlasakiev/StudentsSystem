@@ -5,19 +5,19 @@ import java.util.List;
 
 class StudentClass {
     private List<Student> students;
+    private String name;
 
-    public String getName() {
+    public StudentClass(String name) {
+        this.setName(name);
+        students = new ArrayList<>();
+    }
+
+    String getName() {
         return name;
     }
 
-    public void setName(String name) {
+    private void setName(String name) {
         this.name = name;
-    }
-
-    private String name;
-
-    public StudentClass() {
-        students = new ArrayList<>();
     }
 
     List<Student> getStudents() {

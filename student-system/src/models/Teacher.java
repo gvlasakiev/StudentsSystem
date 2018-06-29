@@ -3,16 +3,18 @@ package models;
 import java.util.ArrayList;
 import java.util.Map;
 
-public class Teacher extends Person {
+public class Teacher extends Person implements Evaluation {
 
 	private ArrayList<StudentClass> listOfClasses;
 	private ArrayList<Subject> listOfSubjects;
 
 	private Map<StudentClass, Subject> studentClassSubjects;
 
-	public Teacher() {
-		// Why super? The super class haven't a constructor.
-		super();
+	public Teacher(String firstName, String lastName, String phoneName, String email) {
+		super.setFirstName(firstName);
+		super.setLastName(lastName);
+		super.setPhoneNumber(phoneName);
+		super.setEmail(email);
 		listOfClasses = new ArrayList<>();
 		listOfSubjects = new ArrayList<>();
 	}
@@ -43,6 +45,7 @@ public class Teacher extends Person {
 		return listOfSubjects;
 	}
 
+	@Override
 	public void addGrade(Student student, Subject subject, Grade grade) {
 		// Check if teacher has this student in the listOfClasses and
 		// subject in listOfSubjects then add grade

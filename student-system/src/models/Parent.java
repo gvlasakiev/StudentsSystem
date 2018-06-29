@@ -19,7 +19,7 @@ public class Parent extends Person {
         this.readNotifications = readNotifications;
     }
 
-    public Deque<String> getUnreadNotification() {
+    Deque<String> getUnreadNotification() {
         return unreadNotification;
     }
 
@@ -27,7 +27,15 @@ public class Parent extends Person {
         this.unreadNotification = unreadNotification;
     }
 
-    public Parent() {
+    Parent(String firstName, String lastName, String phoneNumber) {
+        this(firstName, lastName, phoneNumber, "");
+    }
+
+    Parent(String firstName, String lastName, String phoneName, String email) {
+        super.setFirstName(firstName);
+        super.setLastName(lastName);
+        super.setPhoneNumber(phoneName);
+        super.setEmail(email);
         children = new ArrayList<>();
         readNotifications = new ArrayList<>();
         unreadNotification = new ArrayDeque<>();
@@ -45,16 +53,16 @@ public class Parent extends Person {
     }
 
     public void showUnreadNotifications() {
-    // Exception
-     while (!unreadNotification.isEmpty()) {
-         String currentNotification = unreadNotification.pop();
-         System.out.println(currentNotification);
-         readNotifications.add(currentNotification);
-     }
-
+        // Exception?
+        while (!unreadNotification.isEmpty()) {
+            String currentNotification = unreadNotification.pop();
+            System.out.println(currentNotification);
+            readNotifications.add(currentNotification);
+        }
     }
 
     public void showReadNotifications() {
+        // Can use Stream API here
         for (String notification : unreadNotification) {
             System.out.println(notification);
         }
@@ -70,6 +78,6 @@ public class Parent extends Person {
     }
 
     //public List<String> getNotifications() {
-      //  return notifications;
+    //  return notifications;
     //}
 }

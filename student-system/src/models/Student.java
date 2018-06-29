@@ -12,7 +12,6 @@ public class Student extends Person {
     private Parent parent;
     private List<String> remarks;
     private StudentClass studentClass;
-    //private List<Subject> subjects;
     private Map<Subject, List<Grade>> subjectGrade;
 
     public static int getUnvaccinatedAbsences() {
@@ -58,7 +57,7 @@ public class Student extends Person {
         this.classNumber = classNumber;
     }
 
-    public Parent getParent() {
+    Parent getParent() {
         return parent;
     }
 
@@ -82,7 +81,7 @@ public class Student extends Person {
         this.subjectGrade = subjectGrade;
     }
 
-    public StudentClass getStudentClass() {
+    StudentClass getStudentClass() {
         return studentClass;
     }
 
