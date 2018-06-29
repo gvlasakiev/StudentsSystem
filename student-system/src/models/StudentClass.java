@@ -6,6 +6,7 @@ import java.util.List;
 class StudentClass {
     private List<Student> students;
     private String name;
+    // private dnevnik dnevnik
 
     StudentClass(String name) {
         this.setName(name);
