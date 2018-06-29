@@ -94,7 +94,7 @@ public class Teacher extends Person {
 			Parent currentParent = student.getParent();
 			String message = String.format("Hello, Mr/Ms %s. I want to invite you at our school " +
 					"for parent meeting on Friday.", currentParent.getLastName());
-			
+			currentParent.getUnreadNotification().push(message);
 		}
 	}
 }
