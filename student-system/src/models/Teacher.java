@@ -1,11 +1,12 @@
 package models;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Map;
 
 public class Teacher extends Person implements Evaluation {
 
-	private ArrayList<StudentClass> listOfClasses;
+	private HashSet<StudentClass> listOfClasses;
 	private ArrayList<Subject> listOfSubjects;
 	private Map<StudentClass, Subject> studentClassSubjects;
 
@@ -14,7 +15,7 @@ public class Teacher extends Person implements Evaluation {
 		super.setLastName(lastName);
 		super.setPhoneNumber(phoneNumber);
 		super.setEmail(email);
-		listOfClasses = new ArrayList<>();
+		listOfClasses = new HashSet<>();
 		listOfSubjects = new ArrayList<>();
 	}
 
@@ -27,7 +28,7 @@ public class Teacher extends Person implements Evaluation {
 
 		// Can use StreamingAPI -- >
 		for (StudentClass studentClass : listOfClasses) {
-			System.out.println(studentClass);
+			System.out.println(studentClass.getName());
 		}
 		System.out.println("\nList of all subjects: ");
 		for (Subject subject : listOfSubjects) {
@@ -36,7 +37,11 @@ public class Teacher extends Person implements Evaluation {
 
 	}
 
-	ArrayList<StudentClass> getListOfClasses() {
+	public void setListOfClasses(HashSet<StudentClass> listOfClasses) { this.listOfClasses = listOfClasses; }
+
+	public void setListOfSubjects(ArrayList<Subject> listOfSubjects) { this.listOfSubjects = listOfSubjects; }
+
+	public HashSet<StudentClass> getListOfClasses() {
 		return listOfClasses;
 	}
 
@@ -66,9 +71,9 @@ public class Teacher extends Person implements Evaluation {
 	// Check if Teacher has student
 	public boolean hasStudent(Student student) {
 		if (this.hasStudentClass(student.getStudentClass())) {
-			if (student.getStudentClass().getStudents().contains(student)) {
+			//if (student.getStudentClass().getStudents().contains(student)) {
 				return true;
-			}
+			//}
 		}
 		return false;
 	}
