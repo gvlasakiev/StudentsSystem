@@ -1,15 +1,36 @@
 package models;
 
+import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.Deque;
 import java.util.List;
 
 public class Parent extends Person {
+
     private List<Student> children;
-    private List<String> notifications;
+    private List<String> readNotifications;
+    private Deque<String> unreadNotification;
+
+    public List<String> getReadNotifications() {
+        return readNotifications;
+    }
+
+    public void setReadNotifications(List<String> readNotifications) {
+        this.readNotifications = readNotifications;
+    }
+
+    public Deque<String> getUnreadNotification() {
+        return unreadNotification;
+    }
+
+    public void setUnreadNotification(Deque<String> unreadNotification) {
+        this.unreadNotification = unreadNotification;
+    }
 
     public Parent() {
         children = new ArrayList<>();
-        notifications = new ArrayList<>();
+        readNotifications = new ArrayList<>();
+        unreadNotification = new ArrayDeque<>();
     }
 
     @Override
@@ -24,8 +45,8 @@ public class Parent extends Person {
     }
 
     public void showNotifications() {
-        for (String notification : notifications) {
-            System.out.println(notification);
+        for (String notification : unreadNotification) {
+            System.out.println(unreadNotification);
         }
     }
 
@@ -37,7 +58,7 @@ public class Parent extends Person {
         this.children = children;
     }
 
-    public List<String> getNotifications() {
-        return notifications;
-    }
+    //public List<String> getNotifications() {
+      //  return notifications;
+    //}
 }
