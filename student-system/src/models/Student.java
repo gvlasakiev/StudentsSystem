@@ -36,7 +36,6 @@ public class Student extends Person {
         studentClass.getStudents().add(this);
     }
 
-<<<<<<< HEAD
     public int getUnvaccinatedAbsences() {
         return unvaccinatedAbsences;
     }
