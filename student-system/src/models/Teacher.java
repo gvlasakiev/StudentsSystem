@@ -8,10 +8,9 @@ public class Teacher extends Person implements Evaluation {
 
 	private HashSet<StudentClass> listOfClasses;
 	private ArrayList<Subject> listOfSubjects;
-
 	private Map<StudentClass, Subject> studentClassSubjects;
 
-	public Teacher(String firstName, String lastName, String phoneNumber, String email) {
+	Teacher(String firstName, String lastName, String phoneNumber, String email) {
 		super.setFirstName(firstName);
 		super.setLastName(lastName);
 		super.setPhoneNumber(phoneNumber);
