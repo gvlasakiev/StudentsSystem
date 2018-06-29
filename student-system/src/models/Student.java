@@ -13,19 +13,10 @@ public class Student extends Person {
     private List<String> remarks;
     private StudentClass studentClass;
     private Map<Subject, List<Grade>> subjectGrade;
-
-    public static int getUnvaccinatedAbsences() {
-        return unvaccinatedAbsences;
-    }
-
-    public static void setUnvaccinatedAbsences(int unvaccinatedAbsences) {
-        Student.unvaccinatedAbsences = unvaccinatedAbsences;
-    }
-
     private static int excusedAbsences = 0;
     private static int unvaccinatedAbsences = 0;
 
-    public Student(String firstName, String lastName, String phoneNumber, String email, String egn, int classNumber, Parent parent, List<String> remarks, List<Subject> subjects, Map<Subject, List<Grade>> subjectGrade, StudentClass studentClass) {
+    Student(String firstName, String lastName, String phoneNumber, String email, String egn, int classNumber, Parent parent, StudentClass studentClass) {
         super.setFirstName(firstName);
         super.setLastName(lastName);
         super.setPhoneNumber(phoneNumber);
@@ -36,10 +27,18 @@ public class Student extends Person {
         setParent(parent);
         setStudentClass(studentClass);
         remarks = new ArrayList<String>();
-        subjects = new ArrayList<Subject>();
         subjectGrade = new HashMap<Subject, List<Grade>>();
+
+        parent.getChildren().add(this);
     }
 
+    public static int getUnvaccinatedAbsences() {
+        return unvaccinatedAbsences;
+    }
+
+    public static void setUnvaccinatedAbsences(int unvaccinatedAbsences) {
+        Student.unvaccinatedAbsences = unvaccinatedAbsences;
+    }
 
     public String getEgn() {
         return egn;

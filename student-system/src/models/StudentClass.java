@@ -7,7 +7,7 @@ class StudentClass {
     private List<Student> students;
     private String name;
 
-    public StudentClass(String name) {
+    StudentClass(String name) {
         this.setName(name);
         students = new ArrayList<>();
     }
