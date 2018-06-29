@@ -19,7 +19,7 @@ public class Parent extends Person {
         this.readNotifications = readNotifications;
     }
 
-    public Deque<String> getUnreadNotification() {
+    Deque<String> getUnreadNotification() {
         return unreadNotification;
     }
 
@@ -45,12 +45,14 @@ public class Parent extends Person {
     }
 
     public void showUnreadNotifications() {
+        // Can use Stream API here
         for (String notification : unreadNotification) {
             System.out.println(notification);
         }
     }
 
     public void showReadNotifications() {
+        // Can use Stream API here
         for (String notification : unreadNotification) {
             System.out.println(notification);
         }
