@@ -10,9 +10,11 @@ public class Teacher extends Person implements Evaluation {
 
 	private Map<StudentClass, Subject> studentClassSubjects;
 
-	public Teacher() {
-		// Why super? The super class haven't a constructor.
-		super();
+	public Teacher(String firstName, String lastName, String phoneName, String email) {
+		super.setFirstName(firstName);
+		super.setLastName(lastName);
+		super.setPhoneNumber(phoneName);
+		super.setEmail(email);
 		listOfClasses = new ArrayList<>();
 		listOfSubjects = new ArrayList<>();
 	}
