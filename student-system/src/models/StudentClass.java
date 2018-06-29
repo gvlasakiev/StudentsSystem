@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 class StudentClass {
+    private ClassBook ClassBook;
     private List<Student> students;
+    private List<Subject> subjects;
     private String name;
     // private dnevnik dnevnik
 
