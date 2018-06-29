@@ -1,7 +1,5 @@
 package models;
 
-import com.sun.org.apache.xpath.internal.operations.String;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -28,7 +26,12 @@ public class Student extends Person {
     private static int excusedAbsences = 0;
     private static int unvaccinatedAbsences = 0;
 
-    public Student(String egn, int classNumber, Parent parent, List<String> remarks, List<Subject> subjects, Map<Subject, List<Grade>> subjectGrade, StudentClass studentClass) {
+    public Student(String firstName, String lastName, String phoneNumber, String email, String egn, int classNumber, Parent parent, List<String> remarks, List<Subject> subjects, Map<Subject, List<Grade>> subjectGrade, StudentClass studentClass) {
+        super.setFirstName(firstName);
+        super.setLastName(lastName);
+        super.setPhoneNumber(phoneNumber);
+        super.setEmail(email);
+
         setEgn(egn);
         setClassNumber(classNumber);
         setParent(parent);
