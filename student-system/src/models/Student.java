@@ -29,7 +29,11 @@ public class Student extends Person {
         remarks = new ArrayList<String>();
         subjectGrade = new HashMap<Subject, List<Grade>>();
 
+        // Added current child to his parent
         parent.getChildren().add(this);
+
+        //Added current child to his student class
+        studentClass.getStudents().add(this);
     }
 
     public static int getUnvaccinatedAbsences() {

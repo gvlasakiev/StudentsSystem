@@ -7,10 +7,9 @@ public class Teacher extends Person implements Evaluation {
 
 	private ArrayList<StudentClass> listOfClasses;
 	private ArrayList<Subject> listOfSubjects;
-
 	private Map<StudentClass, Subject> studentClassSubjects;
 
-	public Teacher(String firstName, String lastName, String phoneNumber, String email) {
+	Teacher(String firstName, String lastName, String phoneNumber, String email) {
 		super.setFirstName(firstName);
 		super.setLastName(lastName);
 		super.setPhoneNumber(phoneNumber);
@@ -37,7 +36,7 @@ public class Teacher extends Person implements Evaluation {
 
 	}
 
-	public ArrayList<StudentClass> getListOfClasses() {
+	ArrayList<StudentClass> getListOfClasses() {
 		return listOfClasses;
 	}
 
