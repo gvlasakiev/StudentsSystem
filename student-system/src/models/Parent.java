@@ -44,11 +44,18 @@ public class Parent extends Person {
         System.out.println(student.toString());
     }
 
-    public void showNotifications() {
+    public void showUnreadNotifications() {
         for (String notification : unreadNotification) {
-            System.out.println(unreadNotification);
+            System.out.println(notification);
         }
     }
+
+    public void showReadNotifications() {
+        for (String notification : unreadNotification) {
+            System.out.println(notification);
+        }
+    }
+
 
     public List<Student> getChildren() {
         return children;
