@@ -36,11 +36,11 @@ public class Student extends Person {
         studentClass.getStudents().add(this);
     }
 
-    public static int getUnvaccinatedAbsences() {
+    public int getUnvaccinatedAbsences() {
         return unvaccinatedAbsences;
     }
 
-    public static void setUnvaccinatedAbsences(int unvaccinatedAbsences) {
+    public void setUnvaccinatedAbsences(int unvaccinatedAbsences) {
         Student.unvaccinatedAbsences = unvaccinatedAbsences;
     }
 
@@ -92,11 +92,11 @@ public class Student extends Person {
         this.studentClass = studentClass;
     }
 
-    public static int getExcusedAbsences() {
+    public int getExcusedAbsences() {
         return excusedAbsences;
     }
 
-    public static void setExcusedAbsences(int excusedAbsences) {
+    public void setExcusedAbsences(int excusedAbsences) {
         Student.excusedAbsences = excusedAbsences;
     }
 

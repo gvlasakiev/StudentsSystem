@@ -1,5 +1,7 @@
 package models;
 
+import java.util.regex.Pattern;
+
 public abstract class Person {
     private String firstName;
     private String lastName;
@@ -13,7 +15,10 @@ public abstract class Person {
     }
 
     void setFirstName(String firstName) {
-        this.firstName = firstName;
+        //Add Exception
+        if (Pattern.matches("[A-Z][a-z-]{1,20}", firstName)) {
+            this.firstName = firstName;
+        }
     }
 
     String getLastName() {
@@ -21,7 +26,10 @@ public abstract class Person {
     }
 
     void setLastName(String lastName) {
-        this.lastName = lastName;
+        //Add Exception
+        if (Pattern.matches("[A-Z][a-z-]{1,20}", lastName)) {
+            this.lastName = lastName;
+        }
     }
 
     String getPhoneNumber() {
