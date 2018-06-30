@@ -1,9 +1,6 @@
 package models;
 
-import java.util.ArrayDeque;
-import java.util.ArrayList;
-import java.util.Deque;
-import java.util.List;
+import java.util.*;
 
 public class Parent extends Person {
 
@@ -16,10 +13,7 @@ public class Parent extends Person {
     }
 
     Parent(String firstName, String lastName, String phoneNumber, String email) {
-        super.setFirstName(firstName);
-        super.setLastName(lastName);
-        super.setPhoneNumber(phoneNumber);
-        super.setEmail(email);
+        super(firstName, lastName, phoneNumber, email);
         children = new ArrayList<>();
         readNotifications = new ArrayList<>();
         unreadNotification = new ArrayDeque<>();
@@ -42,7 +36,7 @@ public class Parent extends Person {
     }
 
     @Override
-    protected void showInfo() {
+    public void showInfo() {
         System.out.printf("Full name: %s %s\n", super.getFirstName(), super.getLastName());
         System.out.printf("Phone number: %s\n", super.getPhoneNumber());
         System.out.printf("Email: %s\n", super.getEmail());

@@ -17,17 +17,14 @@ public class Student extends Person {
     private static int unvaccinatedAbsences = 0;
 
     Student(String firstName, String lastName, String phoneNumber, String email, String egn, int classNumber, Parent parent, StudentClass studentClass) {
-        super.setFirstName(firstName);
-        super.setLastName(lastName);
-        super.setPhoneNumber(phoneNumber);
-        super.setEmail(email);
+        super(firstName, lastName, phoneNumber, email);
 
 //        setEgn(egn);
 //        setClassNumber(classNumber);
         setParent(parent);
         setStudentClass(studentClass);
-        remarks = new ArrayList<String>();
-        subjectGrade = new HashMap<Subject, List<Grade>>();
+        remarks = new ArrayList<>();
+        subjectGrade = new HashMap<>();
 
         // Added current child to his parent
         parent.getChildren().add(this);
@@ -100,9 +97,9 @@ public class Student extends Person {
 //        this.remarks = remarks;
 //    }
 
-//    Map<Subject, List<Grade>> getSubjectGrade() {
-//        return subjectGrade;
-//    }
+    Map<Subject, List<Grade>> getSubjectGrade() {
+        return subjectGrade;
+    }
 //
 //    public void setSubjectGrade(Map<Subject, List<Grade>> subjectGrade) {
 //        this.subjectGrade = subjectGrade;
@@ -150,7 +147,7 @@ public class Student extends Person {
 //    }
 
     @Override
-    protected void showInfo() {
+    public void showInfo() {
         System.out.printf("Full name: %s %s\n", super.getFirstName(), super.getLastName());
         System.out.printf("Phone number: %s\n", super.getPhoneNumber());
         System.out.printf("Email: %s", super.getEmail());

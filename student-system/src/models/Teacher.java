@@ -77,7 +77,7 @@ public class Teacher extends Person implements Evaluation {
 	}
 
 	@Override
-	protected void showInfo() {
+	public void showInfo() {
 		System.out.printf("Full name: %s %s\n", super.getFirstName(), super.getLastName());
 		System.out.printf("Phone number: %s\n", super.getPhoneNumber());
 		System.out.printf("Email: %s\n", super.getEmail());
