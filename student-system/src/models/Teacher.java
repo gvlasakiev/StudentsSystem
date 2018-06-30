@@ -10,44 +10,26 @@ public class Teacher extends Person implements Evaluation {
 	private ArrayList<Subject> listOfSubjects;
 	private Map<StudentClass, Subject> studentClassSubjects;
 
-	Teacher(String firstName, String lastName, String phoneNumber, String email) {
-		super.setFirstName(firstName);
-		super.setLastName(lastName);
-		super.setPhoneNumber(phoneNumber);
-		super.setEmail(email);
+	// constructor
+	public Teacher(String firstName, String lastName, String phoneNumber, String email) {
+		super(firstName, lastName, phoneNumber, email);
 		listOfClasses = new HashSet<>();
 		listOfSubjects = new ArrayList<>();
 	}
 
-	@Override
-	protected void showInfo() {
-		System.out.printf("Full name: %s %s\n", super.getFirstName(), super.getLastName());
-		System.out.printf("Phone number: %s\n", super.getPhoneNumber());
-		System.out.printf("Email: %s\n", super.getEmail());
-		System.out.println("List of all classes: ");
-
-		// Can use StreamingAPI -- >
-		for (StudentClass studentClass : listOfClasses) {
-			System.out.println(studentClass.getName());
-		}
-		System.out.println("\nList of all subjects: ");
-		for (Subject subject : listOfSubjects) {
-			System.out.println(subject);
-		}
-
-	}
-
-//	public void setListOfClasses(HashSet<StudentClass> listOfClasses) { this.listOfClasses = listOfClasses; }
-//
-//	public void setListOfSubjects(ArrayList<Subject> listOfSubjects) { this.listOfSubjects = listOfSubjects; }
+	// public void setListOfClasses(HashSet<StudentClass> listOfClasses) {
+	// this.listOfClasses = listOfClasses; }
+	//
+	// public void setListOfSubjects(ArrayList<Subject> listOfSubjects) {
+	// this.listOfSubjects = listOfSubjects; }
 
 	HashSet<StudentClass> getListOfClasses() {
 		return listOfClasses;
 	}
 
-//	public ArrayList<Subject> getListOfSubjects() {
-//		return listOfSubjects;
-//	}
+	// public ArrayList<Subject> getListOfSubjects() {
+	// return listOfSubjects;
+	// }
 
 	@Override
 	public void addGrade(Student student, Subject subject, Grade grade) {
@@ -81,19 +63,39 @@ public class Teacher extends Person implements Evaluation {
 	}
 
 	/*
-	Send invitation for parent meeting to all student parents in particular student class.
+	 * Send invitation for parent meeting to all student parents in particular
+	 * student class.
 	 */
 	void sendInvitation(StudentClass studentClass) {
 		for (Student student : studentClass.getStudents()) {
 			Parent currentParent = student.getParent();
-			String message = String.format("Hello, Mr/Ms %s. I want to invite you at our school " +
-					"for parent meeting on Friday.", currentParent.getLastName());
+			String message = String.format(
+					"Hello, Mr/Ms %s. I want to invite you at our school " + "for parent meeting on Friday.",
+					currentParent.getLastName());
 			currentParent.getUnreadNotification().push(message);
 		}
 	}
 
 	@Override
-	public String toString(){
+	protected void showInfo() {
+		System.out.printf("Full name: %s %s\n", super.getFirstName(), super.getLastName());
+		System.out.printf("Phone number: %s\n", super.getPhoneNumber());
+		System.out.printf("Email: %s\n", super.getEmail());
+		System.out.println("List of all classes: ");
+
+		// Can use StreamingAPI -- >
+		for (StudentClass studentClass : listOfClasses) {
+			System.out.println(studentClass.getName());
+		}
+		System.out.println("\nList of all subjects: ");
+		for (Subject subject : listOfSubjects) {
+			System.out.println(subject);
+		}
+
+	}
+
+	@Override
+	public String toString() {
 		return super.getFirstName() + " " + super.getLastName();
 	}
 }
