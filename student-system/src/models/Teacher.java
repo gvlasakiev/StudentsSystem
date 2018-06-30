@@ -1,6 +1,7 @@
 package models;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Map;
 
@@ -83,14 +84,23 @@ public class Teacher extends Person implements Evaluation {
 		System.out.printf("Email: %s\n", super.getEmail());
 		System.out.println("List of all classes: ");
 
-		// Can use StreamingAPI -- >
-		for (StudentClass studentClass : listOfClasses) {
-			System.out.println(studentClass.getName());
-		}
+		// Print with Stream API
+		listOfClasses.forEach(System.out::println);
+
+		// Print without Stream API
+//		for (StudentClass studentClass : listOfClasses) {
+//			System.out.println(studentClass.getName());
+//		}
+
 		System.out.println("\nList of all subjects: ");
-		for (Subject subject : listOfSubjects) {
-			System.out.println(subject);
-		}
+
+		// Print with Stream API
+		listOfSubjects.forEach(System.out::println);
+
+		// Print without Stream API
+//		for (Subject subject : listOfSubjects) {
+//			System.out.println(subject);
+//		}
 
 	}
 

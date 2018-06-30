@@ -28,10 +28,9 @@
       <file leaf-file-name="Parent.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/models/Parent.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="241">
-              <caret line="68" column="63" selection-start-line="68" selection-start-column="63" selection-end-line="68" selection-end-column="63" />
+            <state relative-caret-position="266">
+              <caret line="66" column="32" lean-forward="true" selection-start-line="66" selection-start-column="32" selection-end-line="66" selection-end-column="32" />
               <folding>
-                <element signature="imports" expanded="true" />
                 <element signature="e#353#354#0" expanded="true" />
                 <element signature="e#411#412#0" expanded="true" />
               </folding>
@@ -124,8 +123,8 @@
       <file leaf-file-name="Teacher.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/models/Teacher.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1275">
-              <caret line="79" column="10" selection-start-line="79" selection-start-column="10" selection-end-line="79" selection-end-column="10" />
+            <state relative-caret-position="-6">
+              <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -152,9 +151,9 @@
         <option value="$PROJECT_DIR$/src/models/Evaluation.java" />
         <option value="$PROJECT_DIR$/src/models/Main.java" />
         <option value="$PROJECT_DIR$/src/models/Person.java" />
-        <option value="$PROJECT_DIR$/src/models/Teacher.java" />
         <option value="$PROJECT_DIR$/src/models/StudentClass.java" />
         <option value="$PROJECT_DIR$/src/models/Student.java" />
+        <option value="$PROJECT_DIR$/src/models/Teacher.java" />
         <option value="$PROJECT_DIR$/src/models/Parent.java" />
       </list>
     </option>
@@ -301,12 +300,12 @@
       <workItem from="1530214968244" duration="240000" />
       <workItem from="1530260200437" duration="19176000" />
       <workItem from="1530346680321" duration="159000" />
-      <workItem from="1530389487234" duration="532000" />
+      <workItem from="1530389487234" duration="921000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="35855000" />
+    <option name="totallyTimeSpent" value="36244000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -424,7 +423,6 @@
         <state relative-caret-position="391">
           <caret line="26" column="51" selection-start-line="26" selection-start-column="51" selection-end-line="26" selection-end-column="51" />
           <folding>
-            <element signature="imports" expanded="true" />
             <element signature="e#353#354#0" expanded="true" />
             <element signature="e#411#412#0" expanded="true" />
           </folding>
@@ -508,7 +506,6 @@
         <state relative-caret-position="442">
           <caret line="26" column="51" lean-forward="true" selection-start-line="26" selection-start-column="51" selection-end-line="26" selection-end-column="51" />
           <folding>
-            <element signature="imports" expanded="true" />
             <element signature="e#353#354#0" expanded="true" />
             <element signature="e#411#412#0" expanded="true" />
           </folding>
@@ -599,7 +596,6 @@
         <state relative-caret-position="340">
           <caret line="21" column="53" lean-forward="true" selection-start-line="21" selection-start-column="53" selection-end-line="21" selection-end-column="53" />
           <folding>
-            <element signature="imports" expanded="true" />
             <element signature="e#353#354#0" expanded="true" />
             <element signature="e#411#412#0" expanded="true" />
           </folding>
@@ -697,7 +693,6 @@
         <state relative-caret-position="119">
           <caret line="7" column="39" lean-forward="true" selection-start-line="7" selection-start-column="39" selection-end-line="7" selection-end-column="39" />
           <folding>
-            <element signature="imports" expanded="true" />
             <element signature="e#353#354#0" expanded="true" />
             <element signature="e#411#412#0" expanded="true" />
           </folding>
@@ -737,7 +732,6 @@
         <state relative-caret-position="136">
           <caret line="8" column="72" lean-forward="true" selection-start-line="8" selection-start-column="72" selection-end-line="8" selection-end-column="72" />
           <folding>
-            <element signature="imports" expanded="true" />
             <element signature="e#353#354#0" expanded="true" />
             <element signature="e#411#412#0" expanded="true" />
           </folding>
@@ -817,16 +811,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/models/Teacher.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1275">
-          <caret line="79" column="10" selection-start-line="79" selection-start-column="10" selection-end-line="79" selection-end-column="10" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/models/Person.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="698">
@@ -848,6 +832,16 @@
             <element signature="e#686#687#0" expanded="true" />
             <element signature="e#741#742#0" expanded="true" />
             <element signature="e#781#782#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/Teacher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-6">
+          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -888,10 +882,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/models/Parent.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="241">
-          <caret line="68" column="63" selection-start-line="68" selection-start-column="63" selection-end-line="68" selection-end-column="63" />
+        <state relative-caret-position="266">
+          <caret line="66" column="32" lean-forward="true" selection-start-line="66" selection-start-column="32" selection-end-line="66" selection-end-column="32" />
           <folding>
-            <element signature="imports" expanded="true" />
             <element signature="e#353#354#0" expanded="true" />
             <element signature="e#411#412#0" expanded="true" />
           </folding>

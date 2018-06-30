@@ -63,9 +63,14 @@ public class Parent extends Person {
 
     public void showReadNotifications() {
         // Can use Stream API here
-        for (String notification : unreadNotification) {
-            System.out.println(notification);
-        }
+
+        // Print with Stream API
+        unreadNotification.forEach(System.out::println);
+
+        // Print without Stream API
+//        for (String notification : unreadNotification) {
+//            System.out.println(notification);
+//        }
     }
 
 
