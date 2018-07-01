@@ -66,7 +66,7 @@ public class Student extends Person {
 		return parent;
 	}
 
-	private void setParent(Parent parent) {
+	public void setParent(Parent parent) {
 		this.parent = parent;
 		parent.getChildren().add(this);
 	}
@@ -93,6 +93,7 @@ public class Student extends Person {
 
 	public void setStudentClass(StudentClass studentClass) {
 		this.studentClass = studentClass;
+		studentClass.getStudents().add(this);
 	}
 
 	public int getExcusedAbsences() {

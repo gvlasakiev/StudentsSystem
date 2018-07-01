@@ -7,7 +7,8 @@ import java.util.Map;
 
 class StudentClass {
 	private List<Student> students;
-	private Map<Subject, Teacher> subjects;
+
+    private Map<Subject, Teacher> subjects;
 	private String name;
 
 	public StudentClass(String name) {
@@ -41,6 +42,9 @@ class StudentClass {
 	// Adding a Subject and a respective Teacher
 	public void addSubject(Subject subject, Teacher teacher) {
 		getSubjects().put(subject, teacher);
+        for (Student student : this.getStudents()) {
+            student.getSubjectGrade().put(subject, new ArrayList<Grade>());
+        }
 	}
 
 }
