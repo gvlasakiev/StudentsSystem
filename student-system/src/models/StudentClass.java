@@ -1,40 +1,46 @@
 package models;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 class StudentClass {
-    private List<Student> students;
-    private List<Subject> subjects;
-    private String name;
+	private List<Student> students;
+	private Map<Subject, Teacher> subjects;
+	private String name;
 
-    StudentClass(String name) {
-        this.setName(name);
-        students = new ArrayList<>();
-        subjects = new ArrayList<>();
-    }
+	public StudentClass(String name) {
+		setName(name);
+		students = new ArrayList<>();
+		subjects = new HashMap<>();
+	}
 
-    String getName() {
-        return name;
-    }
+	public String getName() {
+		return name;
+	}
 
-    private void setName(String name) {
-        this.name = name;
-    }
+	public void setName(String name) {
+		this.name = name;
+	}
 
-    List<Student> getStudents() {
-        return students;
-    }
+	public List<Student> getStudents() {
+		return students;
+	}
 
-    public void setStudents(List<Student> students) {
-        this.students = students;
-    }
+	public Map<Subject, Teacher> getSubjects() {
+		return subjects;
+	}
 
-    public List<Subject> getSubjects() {
-        return subjects;
-    }
+	// Adding a Student to the StudentClass
+	public void addStudent(Student student) {
+		getStudents().add(student);
+		student.setStudentClass(this);
+	}
 
-    public void setSubjects(List<Subject> subjects) {
-        this.subjects = subjects;
-    }
+	// Adding a Subject and a respective Teacher
+	public void addSubject(Subject subject, Teacher teacher) {
+		getSubjects().put(subject, teacher);
+	}
+
 }

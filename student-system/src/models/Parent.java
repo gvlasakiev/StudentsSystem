@@ -4,85 +4,73 @@ import java.util.*;
 
 public class Parent extends Person {
 
-    private List<Student> children;
-    private List<String> readNotifications;
-    private Deque<String> unreadNotification;
+	private List<Student> children;
+	private List<String> readNotifications;
+	private Deque<String> unreadNotification;
 
-    Parent(String firstName, String lastName, String phoneNumber) {
-        this(firstName, lastName, phoneNumber, "");
-    }
+	Parent(String firstName, String lastName, String phoneNumber, String email) {
+		super(firstName, lastName, phoneNumber, email);
+		children = new ArrayList<>();
+		readNotifications = new ArrayList<>();
+		unreadNotification = new ArrayDeque<>();
+	}
 
-    Parent(String firstName, String lastName, String phoneNumber, String email) {
-        super(firstName, lastName, phoneNumber, email);
-        children = new ArrayList<>();
-        readNotifications = new ArrayList<>();
-        unreadNotification = new ArrayDeque<>();
-    }
+	// public List<String> getReadNotifications() {
+	// return readNotifications;
+	// }
+	//
 
-//    public List<String> getReadNotifications() {
-//        return readNotifications;
-//    }
-//
-//    public void setReadNotifications(List<String> readNotifications) {
-//        this.readNotifications = readNotifications;
-//    }
+	Deque<String> getUnreadNotification() {
+		return unreadNotification;
+	}
 
-    Deque<String> getUnreadNotification() {
-        return unreadNotification;
-    }
+	@Override
+	public void showInfo() {
+		System.out.printf("Full name: %s %s\n", super.getFirstName(), super.getLastName());
+		System.out.printf("Phone number: %s\n", super.getPhoneNumber());
+		System.out.printf("Email: %s\n", super.getEmail());
 
-    public void setUnreadNotification(Deque<String> unreadNotification) {
-        this.unreadNotification = unreadNotification;
-    }
+		System.out.println("Student children:");
+		for (Student child : children) {
+			System.out.printf("-%s %s in student class %s.\n", child.getFirstName(), child.getLastName(),
+					child.getStudentClass().getName());
+		}
+	}
 
-    @Override
-    public void showInfo() {
-        System.out.printf("Full name: %s %s\n", super.getFirstName(), super.getLastName());
-        System.out.printf("Phone number: %s\n", super.getPhoneNumber());
-        System.out.printf("Email: %s\n", super.getEmail());
+	public void showStudentInfo(Student student) {
+		System.out.println(student.toString());
+	}
 
-        System.out.println("Student children:");
-        for (Student child : children) {
-            System.out.printf("-%s %s in student class %s.\n",
-                    child.getFirstName(), child.getLastName(), child.getStudentClass().getName());
-        }
-    }
+	public void showUnreadNotifications() {
+		// Exception?
+		while (!unreadNotification.isEmpty()) {
+			String currentNotification = unreadNotification.pop();
+			System.out.println(currentNotification);
+			readNotifications.add(currentNotification);
+		}
+	}
 
-    public void showStudentInfo(Student student) {
-        System.out.println(student.toString());
-    }
+	public void showReadNotifications() {
+		// Can use Stream API here
 
-    public void showUnreadNotifications() {
-        // Exception?
-        while (!unreadNotification.isEmpty()) {
-            String currentNotification = unreadNotification.pop();
-            System.out.println(currentNotification);
-            readNotifications.add(currentNotification);
-        }
-    }
+		// Print with Stream API
+		unreadNotification.forEach(System.out::println);
 
-    public void showReadNotifications() {
-        // Can use Stream API here
+		// Print without Stream API
+		// for (String notification : unreadNotification) {
+		// System.out.println(notification);
+		// }
+	}
 
-        // Print with Stream API
-        unreadNotification.forEach(System.out::println);
+	List<Student> getChildren() {
+		return children;
+	}
 
-        // Print without Stream API
-//        for (String notification : unreadNotification) {
-//            System.out.println(notification);
-//        }
-    }
+	public void setChildren(List<Student> children) {
+		this.children = children;
+	}
 
-
-    List<Student> getChildren() {
-        return children;
-    }
-
-    public void setChildren(List<Student> children) {
-        this.children = children;
-    }
-
-    //public List<String> getNotifications() {
-    //  return notifications;
-    //}
+	// public List<String> getNotifications() {
+	// return notifications;
+	// }
 }
