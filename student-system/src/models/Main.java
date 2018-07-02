@@ -7,7 +7,7 @@ import java.util.Map;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws NoSuchStudentException {
         Parent newParent = new Parent("Ivan", "Ivanow", "0877314151", "joro@gmail.com");
         Student newStudent = new Student("Georgi", "Dimitrow", newParent, "0866435675", "gogo@gmail.com", "8072829726");
         Student newStudent2 = new Student("Georgi", "Dimitrow", newParent, "0866435675", "gogo@gmail.com", "8072829726");
