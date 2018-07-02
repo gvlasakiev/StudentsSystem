@@ -26,9 +26,6 @@ public class Student extends Person {
 
 	}
 
-	public int getUnvaccinatedAbsences() {
-		return unvaccinatedAbsences;
-	}
 
 	public String getEgn() {
 		return egn;
@@ -38,14 +35,14 @@ public class Student extends Person {
 		this.egn = egn;
 	}
 
-	// public static int getUnvaccinatedAbsences() {
-	// return unvaccinatedAbsences;
-	// }
-	//
-	// public static void setUnvaccinatedAbsences(int unvaccinatedAbsences) {
-	// Student.unvaccinatedAbsences = unvaccinatedAbsences;
-	// }
-	//
+	 public int getUnvaccinatedAbsences() {
+	 return unvaccinatedAbsences;
+	 }
+
+	 public void setUnvaccinatedAbsences(int unvaccinatedAbsences) {
+	    this.unvaccinatedAbsences = unvaccinatedAbsences;
+	 }
+
 	// public String getEgn() {
 	// return egn;
 	// }
@@ -71,9 +68,9 @@ public class Student extends Person {
 		parent.getChildren().add(this);
 	}
 
-	// public List<String> getRemarks() {
-	// return remarks;
-	// }
+	 public List<String> getRemarks() {
+	    return remarks;
+	 }
 	//
 	// public void setRemarks(List<String> remarks) {
 	// this.remarks = remarks;
@@ -96,10 +93,6 @@ public class Student extends Person {
 		studentClass.getStudents().add(this);
 	}
 
-	public int getExcusedAbsences() {
-		return excusedAbsences;
-	}
-
     @Override
     public void showInfo() {
         System.out.printf("Full name: %s %s\n", super.getFirstName(), super.getLastName());
@@ -108,13 +101,13 @@ public class Student extends Person {
     }
 
 
-	// public static int getExcusedAbsences() {
-	// return excusedAbsences;
-	// }
-	//
-	// public static void setExcusedAbsences(int excusedAbsences) {
-	// Student.excusedAbsences = excusedAbsences;
-	// }
+	 public int getExcusedAbsences() {
+	     return excusedAbsences;
+	 }
+
+	 public void setExcusedAbsences(int excusedAbsences) {
+	    this.excusedAbsences = excusedAbsences;
+	 }
 
 	/*
 	 * Print all student grades by particular subject
@@ -152,11 +145,11 @@ public class Student extends Person {
      }
 
 	 public void showAll() {
-	 showInfo();
-	 showGrades();
-	 showRemarks();
-	 showAbsences();
-	 }
+         showInfo();
+         showGrades();
+         showRemarks();
+         showAbsences();
+     }
 
 	@Override
 	public String toString() {

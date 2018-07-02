@@ -73,14 +73,33 @@ public class Teacher extends Person implements Evaluation {
 
 	}
 
+	// Write remark to specific student
+	public void remarkStudent(Student student, String remark) {
+		student.getRemarks().add(remark);
+	}
+
+	public void addExcusedAbsences(Student student) {
+		int currentAbsences = student.getExcusedAbsences();
+		student.setExcusedAbsences(currentAbsences + 1);
+	}
+
+	public void addUnvaccinatedAbsences(Student student) {
+		int currentAbsences = student.getUnvaccinatedAbsences();
+		student.setUnvaccinatedAbsences(currentAbsences + 1);
+	}
+
 	// Examine-methods from Evaluation interface
 	// examine an entire StudentClass by a given subject and add a random Grade
 	// for each Student in the StudentClass
 	@Override
 	public void examineClass(StudentClass studentClass, Subject subject) {
-		for (Student student : studentClass.getStudents()) {
-			student.getSubjectGrade().get(subject).add(Grade.randomLetter());
-		}
+		// Examine with Stream API
+		studentClass.getStudents().forEach(s -> s.getSubjectGrade().get(subject).add(Grade.randomLetter()));
+
+		// Examine without Stream API
+//		for (Student student : studentClass.getStudents()) {
+//			student.getSubjectGrade().get(subject).add(Grade.randomLetter());
+//		}
 	}
 
 	// examine a specific Student adding grade
