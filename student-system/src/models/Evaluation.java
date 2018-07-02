@@ -1,5 +1,7 @@
 package models;
 
 public interface Evaluation {
-    void addGrade(Student student, Subject subject, Grade grade);
+	public void examineClass(StudentClass studentClass, Subject subject);
+
+	public void examineStudent(Student student, Subject subject, Grade grade);
 }

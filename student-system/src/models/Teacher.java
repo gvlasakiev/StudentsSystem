@@ -9,7 +9,6 @@ public class Teacher extends Person implements Evaluation {
 
 	private HashSet<StudentClass> listOfClasses;
 	private ArrayList<Subject> listOfSubjects;
-	private Map<StudentClass, Subject> studentClassSubjects;
 
 	// constructor
 	public Teacher(String firstName, String lastName, String phoneNumber, String email) {
@@ -18,43 +17,13 @@ public class Teacher extends Person implements Evaluation {
 		listOfSubjects = new ArrayList<>();
 	}
 
-	// public void setListOfClasses(HashSet<StudentClass> listOfClasses) {
-	// this.listOfClasses = listOfClasses; }
-	//
-	// public void setListOfSubjects(ArrayList<Subject> listOfSubjects) {
-	// this.listOfSubjects = listOfSubjects; }
-
-	HashSet<StudentClass> getListOfClasses() {
-		return listOfClasses;
-	}
-
-	// public ArrayList<Subject> getListOfSubjects() {
-	// return listOfSubjects;
-	// }
-
-	@Override
-	public void addGrade(Student student, Subject subject, Grade grade) {
-		// Check if teacher has this student in the listOfClasses and
-		// subject in listOfSubjects then add grade
-		if (this.hasStudentClass(student.getStudentClass())) {
-			if (student.getSubjectGrade().containsKey(subject)) {
-				student.getSubjectGrade().get(subject).add(grade);
-			}
-		}
-	}
-
-	// Check if Teacher has student class
-	private boolean hasStudentClass(StudentClass studentClass) {
-		return this.getListOfClasses().contains(studentClass);
-	}
-
 	// Show grades for each class in studentClass per subject
 	public void printGrades(StudentClass studentClass, Subject subject) {
 		if (this.listOfClasses.contains(studentClass) && this.listOfSubjects.contains(subject)) {
 			System.out.println("Subject: " + subject);
 			System.out.println("Showing grades for " + studentClass.getName() + " :");
 			for (Student student : studentClass.getStudents()) {
-				System.out.print(student.getFirstName() + " " + student.getLastName() + " ");
+				System.out.print(student.toString() + " ");
 				System.out.println(student.getSubjectGrade().get(subject).toString());
 
 			}
@@ -88,9 +57,9 @@ public class Teacher extends Person implements Evaluation {
 		listOfClasses.forEach(System.out::println);
 
 		// Print without Stream API
-//		for (StudentClass studentClass : listOfClasses) {
-//			System.out.println(studentClass.getName());
-//		}
+		// for (StudentClass studentClass : listOfClasses) {
+		// System.out.println(studentClass.getName());
+		// }
 
 		System.out.println("\nList of all subjects: ");
 
@@ -98,14 +67,31 @@ public class Teacher extends Person implements Evaluation {
 		listOfSubjects.forEach(System.out::println);
 
 		// Print without Stream API
-//		for (Subject subject : listOfSubjects) {
-//			System.out.println(subject);
-//		}
+		// for (Subject subject : listOfSubjects) {
+		// System.out.println(subject);
+		// }
 
+	}
+
+	// Examine-methods from Evaluation interface
+	// examine an entire StudentClass by a given subject and add a random Grade
+	// for each Student in the StudentClass
+	@Override
+	public void examineClass(StudentClass studentClass, Subject subject) {
+		for (Student student : studentClass.getStudents()) {
+			student.getSubjectGrade().get(subject).add(Grade.randomLetter());
+		}
+	}
+
+	// examine a specific Student adding grade
+	// to the list of grades for the specified subject
+	@Override
+	public void examineStudent(Student student, Subject subject, Grade grade) {
+		student.getSubjectGrade().get(subject).add(grade);
 	}
 
 	@Override
 	public String toString() {
-		return super.getFirstName() + " " + super.getLastName();
+		return super.getFirstName().charAt(0) + ". " + super.getLastName();
 	}
 }
