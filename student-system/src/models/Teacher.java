@@ -98,14 +98,19 @@ public class Teacher extends Person implements Evaluation {
 		student.setUnvaccinatedAbsences(currentAbsences + 1);
 	}
 
+
 	// Examine-methods from Evaluation interface
 	// examine an entire StudentClass by a given subject and add a random Grade
 	// for each Student in the StudentClass
 	@Override
 	public void examineClass(StudentClass studentClass, Subject subject) {
 		// Examine with Stream API
-		studentClass.getStudents().forEach(s -> s.getSubjectGrade().get(subject).add(Grade.randomLetter()));
-
+		if (this.getListOfClasses().contains(studentClass)) {
+			if(this.getListOfSubjects().contains(subject) && studentClass.inSubjects(subject, this))
+				studentClass.getStudents().forEach(s -> s.getSubjectGrade().get(subject).add(Grade.randomLetter()));
+		} else {
+			System.out.println("Exception 02");
+		}
 		// Examine without Stream API
 //		for (Student student : studentClass.getStudents()) {
 //			student.getSubjectGrade().get(subject).add(Grade.randomLetter());
@@ -116,7 +121,16 @@ public class Teacher extends Person implements Evaluation {
 	// to the list of grades for the specified subject
 	@Override
 	public void examineStudent(Student student, Subject subject, Grade grade) {
-		student.getSubjectGrade().get(subject).add(grade);
+		System.out.println(this.getListOfClasses().contains(student.getStudentClass()));
+		if (this.getListOfClasses().contains(student.getStudentClass())) {
+			if (this.getListOfSubjects().contains(subject) && student.getStudentClass().inSubjects(subject, this)) {
+				student.getSubjectGrade().get(subject).add(grade);
+			} else {
+				System.out.println("Exception 03");
+			}
+		} else {
+			System.out.println("Exception 01");
+		}
 	}
 
 	@Override

@@ -39,6 +39,11 @@ class StudentClass {
 		student.setStudentClass(this);
 	}
 
+	public boolean inSubjects(Subject subject, Teacher teacher) {
+		final Teacher value = subjects.get(subject);
+		return value != null && value.equals(teacher);
+	}
+
 	// Adding a Subject and a respective Teacher
 	public void addSubject(Subject subject, Teacher teacher) {
 		getSubjects().put(subject, teacher);
@@ -47,6 +52,7 @@ class StudentClass {
 		this.getStudents().forEach(s -> s.getSubjectGrade().put(subject, new ArrayList<>()));
         // Add subject to teacher class
 		teacher.getListOfSubjects().add(subject);
+		teacher.getListOfClasses().add(this);
 		// Print without Stream API
 //        for (Student student : this.getStudents()) {
 //            student.getSubjectGrade().put(subject, new ArrayList<Grade>());

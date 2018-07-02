@@ -17,7 +17,6 @@ public enum Grade {
 		return VALUES.get(RANDOM.nextInt(SIZE));
 	}
 
-
 	@Override
 	public String toString() {
 		String name = super.name();

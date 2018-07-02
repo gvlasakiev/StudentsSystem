@@ -49,6 +49,16 @@ public class Parent extends Person {
         student.showAll();
     }
 
+    public void excuseAbsences(Student student, int numberAbsences) {
+        if(student.getUnvaccinatedAbsences() >= numberAbsences) {
+            student.setExcusedAbsences(student.getExcusedAbsences()+numberAbsences);
+            student.setUnvaccinatedAbsences(student.getUnvaccinatedAbsences()-numberAbsences);
+            System.out.println("Current Unvaccinated Absences: "+student.getUnvaccinatedAbsences());
+        } else {
+            System.out.println("Exception 05");
+        }
+    }
+
     public void showUnreadNotifications() {
         // Exception?
         while (!unreadNotification.isEmpty()) {

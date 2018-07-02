@@ -118,11 +118,12 @@ public class Student extends Person {
          for (Map.Entry<Subject, List<Grade>> subjectListEntry : subjectGrade.entrySet()) {
              System.out.print(subjectListEntry.getKey() + " - ");
 
-             System.out.print(subjectListEntry.getValue().get(0));
-             for (int i = 1; i < subjectListEntry.getValue().size(); i++) {
-                 System.out.print("," + subjectListEntry.getValue().get(i));
-             }
-
+             if (!subjectListEntry.getValue().isEmpty()) {
+				 System.out.print(subjectListEntry.getValue().get(0));
+				 for (int i = 1; i < subjectListEntry.getValue().size(); i++) {
+					 System.out.print("," + subjectListEntry.getValue().get(i));
+				 }
+			 }
              System.out.println();
          }
      }
@@ -130,7 +131,7 @@ public class Student extends Person {
 
 	 public void showAbsences() {
          System.out.println("Excused Absences: " + excusedAbsences);
-         System.out.println("Unvaccinated Absences" + unvaccinatedAbsences);
+         System.out.println("Unvaccinated Absences: " + unvaccinatedAbsences);
      }
 
 	 public void showRemarks() {
