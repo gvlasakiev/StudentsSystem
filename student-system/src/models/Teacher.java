@@ -7,7 +7,9 @@ import java.util.Map;
 
 public class Teacher extends Person implements Evaluation {
 
+
 	private HashSet<StudentClass> listOfClasses;
+
 	private ArrayList<Subject> listOfSubjects;
 
 	// constructor
@@ -15,6 +17,14 @@ public class Teacher extends Person implements Evaluation {
 		super(firstName, lastName, phoneNumber, email);
 		listOfClasses = new HashSet<>();
 		listOfSubjects = new ArrayList<>();
+	}
+
+	public ArrayList<Subject> getListOfSubjects() {
+		return listOfSubjects;
+	}
+
+	public HashSet<StudentClass> getListOfClasses() {
+		return listOfClasses;
 	}
 
 	// Show grades for each class in studentClass per subject

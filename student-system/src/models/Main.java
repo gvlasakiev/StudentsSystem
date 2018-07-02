@@ -19,7 +19,10 @@ public class Main {
         newClass.addSubject(Subject.ART, newTeacher);
 
         newTeacher.examineStudent(newStudent, Subject.ART, Grade.GOOD);
+        newTeacher.examineStudent(newStudent, Subject.ART, Grade.GOOD);
+        newTeacher.examineStudent(newStudent, Subject.ART, Grade.GOOD);
         System.out.print(newStudent.getSubjectGrade());
+
 
 
     }
