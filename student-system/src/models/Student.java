@@ -16,7 +16,7 @@ public class Student extends Person {
 	private int excusedAbsences = 0;
 	private int unvaccinatedAbsences = 0;
 
-	public Student(String firstName, String lastName, String phoneNumber, String email, String egn) {
+	public Student(String firstName, String lastName, Parent parent, String phoneNumber, String email, String egn) {
 		super(firstName, lastName, phoneNumber, email);
 
 		setEgn(egn);
@@ -118,8 +118,9 @@ public class Student extends Person {
          for (Map.Entry<Subject, List<Grade>> subjectListEntry : subjectGrade.entrySet()) {
              System.out.print(subjectListEntry.getKey() + " - ");
 
-             for (Grade grade : subjectListEntry.getValue()) {
-                 System.out.print(grade + " ");
+             System.out.print(subjectListEntry.getValue().get(0));
+             for (int i = 1; i < subjectListEntry.getValue().size(); i++) {
+                 System.out.print("," + subjectListEntry.getValue().get(i));
              }
 
              System.out.println();

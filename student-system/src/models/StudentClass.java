@@ -45,7 +45,8 @@ class StudentClass {
 
 		// Print with Stream API
 		this.getStudents().forEach(s -> s.getSubjectGrade().put(subject, new ArrayList<>()));
-
+        // Add subject to teacher class
+		teacher.getListOfSubjects().add(subject);
 		// Print without Stream API
 //        for (Student student : this.getStudents()) {
 //            student.getSubjectGrade().put(subject, new ArrayList<Grade>());
