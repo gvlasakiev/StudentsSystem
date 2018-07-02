@@ -70,7 +70,6 @@ public class Parent extends Person {
 //        }
     }
 
-
     List<Student> getChildren() {
         return children;
     }
