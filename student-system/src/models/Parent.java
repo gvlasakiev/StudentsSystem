@@ -42,6 +42,7 @@ public class Parent extends Person {
         System.out.printf("Email: %s\n", super.getEmail());
 
         System.out.println("Student children:");
+
         for (Student child : children) {
             System.out.printf("-%s %s in student class %s.\n",
                     child.getFirstName(), child.getLastName(), child.getStudentClass().getName());
