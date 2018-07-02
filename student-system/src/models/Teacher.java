@@ -1,9 +1,6 @@
 package models;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Map;
+import java.util.*;
 
 public class Teacher extends Person implements Evaluation {
 
@@ -98,6 +95,16 @@ public class Teacher extends Person implements Evaluation {
 		student.setUnvaccinatedAbsences(currentAbsences + 1);
 	}
 
+	/*
+	 Add all students and their parents to attendants event list
+	 This is example for polymorphism usage
+	  */
+	public List<Person> arrangeGraduation(StudentClass studentClass) {
+		List<Person> attendants = new ArrayList<>(studentClass.getStudents());
+		studentClass.getStudents().forEach(s -> attendants.add(s.getParent()));
+
+		return attendants;
+	}
 
 	// Examine-methods from Evaluation interface
 	// examine an entire StudentClass by a given subject and add a random Grade
@@ -106,8 +113,9 @@ public class Teacher extends Person implements Evaluation {
 	public void examineClass(StudentClass studentClass, Subject subject) {
 		// Examine with Stream API
 		if (this.getListOfClasses().contains(studentClass)) {
-			if(this.getListOfSubjects().contains(subject) && studentClass.inSubjects(subject, this))
+			if(this.getListOfSubjects().contains(subject) && studentClass.inSubjects(subject, this)) {
 				studentClass.getStudents().forEach(s -> s.getSubjectGrade().get(subject).add(Grade.randomLetter()));
+			}
 		} else {
 			System.out.println("Exception 02");
 		}
