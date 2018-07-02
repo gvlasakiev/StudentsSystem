@@ -20,10 +20,10 @@ public class Student extends Person {
 		super(firstName, lastName, phoneNumber, email);
 
 		setEgn(egn);
+		setParent(parent);
 		// setClassNumber(classNumber);
 		remarks = new ArrayList<>();
 		subjectGrade = new HashMap<>();
-
 	}
 
 
