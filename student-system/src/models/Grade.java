@@ -16,4 +16,30 @@ public enum Grade {
 	public static Grade randomLetter() {
 		return VALUES.get(RANDOM.nextInt(SIZE));
 	}
+
+
+	@Override
+	public String toString() {
+		String name = super.name();
+
+		switch (name) {
+			case "POOR":
+				name = "2";
+			break;
+			case "FAIR":
+				name =  "3";
+			break;
+			case "GOOD":
+				name =  "4";
+			break;
+			case "VERY_GOOD":
+				name =  "5";
+			break;
+			case "EXCELLENT":
+				name =  "6";
+			break;
+		}
+
+		return name;
+	}
 }
