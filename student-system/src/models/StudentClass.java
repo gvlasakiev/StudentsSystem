@@ -42,9 +42,14 @@ class StudentClass {
 	// Adding a Subject and a respective Teacher
 	public void addSubject(Subject subject, Teacher teacher) {
 		getSubjects().put(subject, teacher);
-        for (Student student : this.getStudents()) {
-            student.getSubjectGrade().put(subject, new ArrayList<Grade>());
-        }
+
+		// Print with Stream API
+		this.getStudents().forEach(s -> s.getSubjectGrade().put(subject, new ArrayList<>()));
+
+		// Print without Stream API
+//        for (Student student : this.getStudents()) {
+//            student.getSubjectGrade().put(subject, new ArrayList<Grade>());
+//        }
 	}
 
 }

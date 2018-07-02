@@ -100,6 +100,13 @@ public class Student extends Person {
 		return excusedAbsences;
 	}
 
+    @Override
+    public void showInfo() {
+        System.out.printf("Full name: %s %s\n", super.getFirstName(), super.getLastName());
+        System.out.printf("Phone number: %s\n", super.getPhoneNumber());
+        System.out.printf("Email: %s", super.getEmail());
+    }
+
 
 	// public static int getExcusedAbsences() {
 	// return excusedAbsences;
@@ -112,46 +119,44 @@ public class Student extends Person {
 	/*
 	 * Print all student grades by particular subject
 	 */
-	// public void showGrades() {
-	// System.out.println("Grades:");
-	// // Can use Streaming API here
-	// for (Map.Entry<Subject, List<Grade>> subjectListEntry :
-	// subjectGrade.entrySet()) {
-	// System.out.print(subjectListEntry.getKey() + " - ");
-	//
-	// for (Grade grade : subjectListEntry.getValue()) {
-	// System.out.print(grade + " ");
-	// }
-	//
-	// System.out.println();
-	// }
-	// }
+	 public void showGrades() {
+         System.out.println("Grades:");
+         // Can use Streaming API here
+         for (Map.Entry<Subject, List<Grade>> subjectListEntry : subjectGrade.entrySet()) {
+             System.out.print(subjectListEntry.getKey() + " - ");
 
-	@Override
-	public void showInfo() {
-		System.out.printf("Full name: %s %s\n", super.getFirstName(), super.getLastName());
-		System.out.printf("Phone number: %s\n", super.getPhoneNumber());
-		System.out.printf("Email: %s", super.getEmail());
-	}
+             for (Grade grade : subjectListEntry.getValue()) {
+                 System.out.print(grade + " ");
+             }
 
-	// public void showAbsences() {
-	// System.out.println("Excused Absences: "+excusedAbsences);
-	// System.out.println("Unvaccinated Absences"+unvaccinatedAbsences);
-	// }
-	//
-	// public void showRemarks() {
-	// System.out.println("Show Remarks:");
-	// for (String remark : remarks) {
-	// System.out.println(remark);
-	// }
-	// }
+             System.out.println();
+         }
+     }
 
-	// public void showAll() {
-	// showInfo();
-	// showGrades();
-	// showRemarks();
-	// showAbsences();
-	// }
+
+	 public void showAbsences() {
+         System.out.println("Excused Absences: " + excusedAbsences);
+         System.out.println("Unvaccinated Absences" + unvaccinatedAbsences);
+     }
+
+	 public void showRemarks() {
+         System.out.println("Show Remarks:");
+
+         //Print with Stream API -> System.out::println == s -> System.out.println(s); <-
+         remarks.forEach(System.out::println);
+
+         //Print without Stream API
+//         for (String remark : remarks) {
+//             System.out.println(remark);
+//         }
+     }
+
+	 public void showAll() {
+	 showInfo();
+	 showGrades();
+	 showRemarks();
+	 showAbsences();
+	 }
 
 	@Override
 	public String toString() {
