@@ -5,9 +5,11 @@ import java.util.*;
 public class Teacher extends Person implements Evaluation {
 
 
+	private static final int ABSENCE = 1;
 	private HashSet<StudentClass> listOfClasses;
 
 	private ArrayList<Subject> listOfSubjects;
+
 
 	// constructor
 	public Teacher(String firstName, String lastName, String phoneNumber, String email) {
@@ -87,12 +89,12 @@ public class Teacher extends Person implements Evaluation {
 
 	public void addExcusedAbsences(Student student) {
 		int currentAbsences = student.getExcusedAbsences();
-		student.setExcusedAbsences(currentAbsences + 1);
+		student.setExcusedAbsences(currentAbsences + ABSENCE);
 	}
 
 	public void addUnvaccinatedAbsences(Student student) {
 		int currentAbsences = student.getUnvaccinatedAbsences();
-		student.setUnvaccinatedAbsences(currentAbsences + 1);
+		student.setUnvaccinatedAbsences(currentAbsences + ABSENCE);
 	}
 
 	/*
