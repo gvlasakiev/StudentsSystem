@@ -1,7 +1,7 @@
 package models;
 
-public class NoSuchStudentException extends Exception {
-    public NoSuchStudentException () {
+class NoSuchStudentException extends Exception {
+    NoSuchStudentException() {
         super("The student does not exist.");
     }
 }

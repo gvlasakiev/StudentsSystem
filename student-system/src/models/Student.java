@@ -4,94 +4,62 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.*;
 
 public class Student extends Person {
-	private String egn;
-	// private int classNumber; ?????
-	private Parent parent;
-	private List<String> remarks;
-	private StudentClass studentClass;
-	private Map<Subject, List<Grade>> subjectGrade;
-	private int excusedAbsences = 0;
-	private int unvaccinatedAbsences = 0;
+    private String egn;
+    private Parent parent;
+    private List<String> remarks;
+    private StudentClass studentClass;
+    private Map<Subject, List<Grade>> subjectGrade;
+    private int excusedAbsences = 0;
+    private int unvaccinatedAbsences = 0;
 
-	public Student(String firstName, String lastName, Parent parent, String phoneNumber, String email, String egn) {
-		super(firstName, lastName, phoneNumber, email);
+    Student(String firstName, String lastName, Parent parent, String phoneNumber, String email, String egn) {
+        super(firstName, lastName, phoneNumber, email);
 
-		setEgn(egn);
-		setParent(parent);
-		// setClassNumber(classNumber);
-		remarks = new ArrayList<>();
-		subjectGrade = new HashMap<>();
-	}
+        setEgn(egn);
+        setParent(parent);
+        remarks = new ArrayList<>();
+        subjectGrade = new HashMap<>();
+    }
 
+    private void setEgn(String egn) {
+        this.egn = egn;
+    }
 
-	public String getEgn() {
-		return egn;
-	}
+    int getUnvaccinatedAbsences() {
+        return unvaccinatedAbsences;
+    }
 
-	public void setEgn(String egn) {
-		this.egn = egn;
-	}
+    void setUnvaccinatedAbsences(int unvaccinatedAbsences) {
+        this.unvaccinatedAbsences = unvaccinatedAbsences;
+    }
 
-	 public int getUnvaccinatedAbsences() {
-	 return unvaccinatedAbsences;
-	 }
+    Parent getParent() {
+        return parent;
+    }
 
-	 public void setUnvaccinatedAbsences(int unvaccinatedAbsences) {
-	    this.unvaccinatedAbsences = unvaccinatedAbsences;
-	 }
+    private void setParent(Parent parent) {
+        this.parent = parent;
+        parent.getChildren().add(this);
+    }
 
-	// public String getEgn() {
-	// return egn;
-	// }
-	//
-	// private void setEgn(String egn) {
-	// this.egn = egn;
-	// }
+    List<String> getRemarks() {
+        return remarks;
+    }
 
-	// public int getClassNumber() {
-	// return classNumber;
-	// }
-	//
-	// private void setClassNumber(int classNumber) {
-	// this.classNumber = classNumber;
-	// }
+    Map<Subject, List<Grade>> getSubjectGrade() {
+        return subjectGrade;
+    }
 
-	public Parent getParent() {
-		return parent;
-	}
+    StudentClass getStudentClass() {
+        return studentClass;
+    }
 
-	public void setParent(Parent parent) {
-		this.parent = parent;
-		parent.getChildren().add(this);
-	}
-
-	 public List<String> getRemarks() {
-	    return remarks;
-	 }
-	//
-	// public void setRemarks(List<String> remarks) {
-	// this.remarks = remarks;
-	// }
-
-	Map<Subject, List<Grade>> getSubjectGrade() {
-		return subjectGrade;
-	}
-	//
-	// public void setSubjectGrade(Map<Subject, List<Grade>> subjectGrade) {
-	// this.subjectGrade = subjectGrade;
-	// }
-
-	StudentClass getStudentClass() {
-		return studentClass;
-	}
-
-	public void setStudentClass(StudentClass studentClass) {
-		this.studentClass = studentClass;
-		studentClass.getStudents().add(this);
-	}
+    void setStudentClass(StudentClass studentClass) {
+        this.studentClass = studentClass;
+        studentClass.getStudents().add(this);
+    }
 
     @Override
     public void showInfo() {
@@ -100,61 +68,52 @@ public class Student extends Person {
         System.out.printf("Email: %s", super.getEmail());
     }
 
+    int getExcusedAbsences() {
+        return excusedAbsences;
+    }
 
-	 public int getExcusedAbsences() {
-	     return excusedAbsences;
-	 }
+    void setExcusedAbsences(int excusedAbsences) {
+        this.excusedAbsences = excusedAbsences;
+    }
 
-	 public void setExcusedAbsences(int excusedAbsences) {
-	    this.excusedAbsences = excusedAbsences;
-	 }
+    /*
+     * Print all student grades by particular subject
+     */
+    void showGrades() {
+        System.out.println("Grades:");
+        for (Map.Entry<Subject, List<Grade>> subjectListEntry : subjectGrade.entrySet()) {
+            System.out.print(subjectListEntry.getKey() + " - ");
 
-	/*
-	 * Print all student grades by particular subject
-	 */
-	 public void showGrades() {
-         System.out.println("Grades:");
-         // Can use Streaming API here
-         for (Map.Entry<Subject, List<Grade>> subjectListEntry : subjectGrade.entrySet()) {
-             System.out.print(subjectListEntry.getKey() + " - ");
-
-             if (!subjectListEntry.getValue().isEmpty()) {
-				 System.out.print(subjectListEntry.getValue().get(0));
-				 for (int i = 1; i < subjectListEntry.getValue().size(); i++) {
-					 System.out.print("," + subjectListEntry.getValue().get(i));
-				 }
-			 }
-             System.out.println();
-         }
-     }
+            if (!subjectListEntry.getValue().isEmpty()) {
+                System.out.print(subjectListEntry.getValue().get(0));
+                for (int i = 1; i < subjectListEntry.getValue().size(); i++) {
+                    System.out.print("," + subjectListEntry.getValue().get(i));
+                }
+            }
+            System.out.println();
+        }
+    }
 
 
-	 public void showAbsences() {
-         System.out.println("Excused Absences: " + excusedAbsences);
-         System.out.println("Unvaccinated Absences: " + unvaccinatedAbsences);
-     }
+    void showAbsences() {
+        System.out.println("Excused Absences: " + excusedAbsences);
+        System.out.println("Unvaccinated Absences: " + unvaccinatedAbsences);
+    }
 
-	 public void showRemarks() {
-         System.out.println("Show Remarks:");
+    void showRemarks() {
+        System.out.println("Show Remarks:");
+        remarks.forEach(System.out::println);
+    }
 
-         //Print with Stream API -> System.out::println == s -> System.out.println(s); <-
-         remarks.forEach(System.out::println);
+    void showAll() {
+        showInfo();
+        showGrades();
+        showRemarks();
+        showAbsences();
+    }
 
-         //Print without Stream API
-//         for (String remark : remarks) {
-//             System.out.println(remark);
-//         }
-     }
-
-	 public void showAll() {
-         showInfo();
-         showGrades();
-         showRemarks();
-         showAbsences();
-     }
-
-	@Override
-	public String toString() {
-		return super.getFirstName() + " " + super.getLastName();
-	}
+    @Override
+    public String toString() {
+        return super.getFirstName() + " " + super.getLastName();
+    }
 }

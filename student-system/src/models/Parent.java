@@ -3,7 +3,6 @@ package models;
 import java.util.*;
 
 public class Parent extends Person {
-
     private List<Student> children;
     private List<String> readNotifications;
     private Deque<String> unreadNotification;
@@ -15,21 +14,9 @@ public class Parent extends Person {
         unreadNotification = new ArrayDeque<>();
     }
 
-//    public List<String> getReadNotifications() {
-//        return readNotifications;
-//    }
-//
-//    public void setReadNotifications(List<String> readNotifications) {
-//        this.readNotifications = readNotifications;
-//    }
-
     Deque<String> getUnreadNotification() {
         return unreadNotification;
     }
-
-//    public void setUnreadNotification(Deque<String> unreadNotification) {
-//        this.unreadNotification = unreadNotification;
-//    }
 
     @Override
     public void showInfo() {
@@ -49,18 +36,17 @@ public class Parent extends Person {
         student.showAll();
     }
 
-    public void excuseAbsences(Student student, int numberAbsences) {
+    public void excuseAbsences(Student student, int numberAbsences) throws NoSoMuchUnvaccinatedAbsences {
         if(student.getUnvaccinatedAbsences() >= numberAbsences) {
             student.setExcusedAbsences(student.getExcusedAbsences()+numberAbsences);
             student.setUnvaccinatedAbsences(student.getUnvaccinatedAbsences()-numberAbsences);
             System.out.println("Current Unvaccinated Absences: "+student.getUnvaccinatedAbsences());
         } else {
-            System.out.println("Exception 05");
+            throw new NoSoMuchUnvaccinatedAbsences();
         }
     }
 
     public void showUnreadNotifications() {
-        // Exception?
         while (!unreadNotification.isEmpty()) {
             String currentNotification = unreadNotification.pop();
             System.out.println(currentNotification);
@@ -69,36 +55,11 @@ public class Parent extends Person {
     }
 
     public void showReadNotifications() {
-        // Can use Stream API here
-
         // Print with Stream API
-        unreadNotification.forEach(System.out::println);
-
-        // Print without Stream API
-//        for (String notification : unreadNotification) {
-//            System.out.println(notification);
-//        }
+        readNotifications.forEach(System.out::println);
     }
 
     List<Student> getChildren() {
         return children;
     }
-
-    public void setChildren(List<Student> children) {
-        this.children = children;
-    }
-
-    //public List<String> getNotifications() {
-    //  return notifications;
-    //}
-
-
-    // public List<String> getReadNotifications() {
-    // return readNotifications;
-    // }
-    //
-
-    // public List<String> getNotifications() {
-    // return notifications;
-    // }
 }

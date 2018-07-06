@@ -17,19 +17,19 @@ class StudentClass {
 		subjects = new HashMap<>();
 	}
 
-	public String getName() {
+	String getName() {
 		return name;
 	}
 
-	public void setName(String name) {
+	private void setName(String name) {
 		this.name = name;
 	}
 
-	public List<Student> getStudents() {
+	List<Student> getStudents() {
 		return students;
 	}
 
-	public Map<Subject, Teacher> getSubjects() {
+	private Map<Subject, Teacher> getSubjects() {
 		return subjects;
 	}
 
@@ -39,7 +39,7 @@ class StudentClass {
 		student.setStudentClass(this);
 	}
 
-	public boolean inSubjects(Subject subject, Teacher teacher) {
+	boolean inSubjects(Subject subject, Teacher teacher) {
 		final Teacher value = subjects.get(subject);
 		return value != null && value.equals(teacher);
 	}
@@ -48,15 +48,10 @@ class StudentClass {
 	public void addSubject(Subject subject, Teacher teacher) {
 		getSubjects().put(subject, teacher);
 
-		// Print with Stream API
+		// Add subject with Stream API
 		this.getStudents().forEach(s -> s.getSubjectGrade().put(subject, new ArrayList<>()));
         // Add subject to teacher class
 		teacher.getListOfSubjects().add(subject);
 		teacher.getListOfClasses().add(this);
-		// Print without Stream API
-//        for (Student student : this.getStudents()) {
-//            student.getSubjectGrade().put(subject, new ArrayList<Grade>());
-//        }
 	}
-
 }

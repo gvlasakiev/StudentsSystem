@@ -1,13 +1,9 @@
 package models;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 public class Main {
 
-    public static void main(String[] args) throws NoSuchStudentException {
+    public static void main(String[] args)
+            throws NoSuchStudentException, NoSuchSubjectException, NoSuchStudentClassException, NoSoMuchUnvaccinatedAbsences {
         Parent newParent = new Parent("Ivan", "Ivanow", "0877314151", "joro@gmail.com");
         Student newStudent = new Student("Georgi", "Dimitrow", newParent, "0866435675", "gogo@gmail.com", "8072829726");
         Student newStudent2 = new Student("Georgi", "Dimitrow", newParent, "0866435675", "gogo@gmail.com", "8072829726");
@@ -53,7 +49,5 @@ public class Main {
         //System.out.println(newTeacher.toString());
 
         //newStudent.showGrades();
-
-
     }
 }

@@ -3,27 +3,22 @@ package models;
 import java.util.*;
 
 public class Teacher extends Person implements Evaluation {
-
-
 	private static final int ABSENCE = 1;
 	private HashSet<StudentClass> listOfClasses;
-
 	private ArrayList<Subject> listOfSubjects;
 
-
-	// constructor
 	public Teacher(String firstName, String lastName, String phoneNumber, String email) {
 		super(firstName, lastName, phoneNumber, email);
 		listOfClasses = new HashSet<>();
 		listOfSubjects = new ArrayList<>();
 	}
 
-	public ArrayList<Subject> getListOfSubjects() {
-		return listOfSubjects;
+	HashSet<StudentClass> getListOfClasses() {
+		return listOfClasses;
 	}
 
-	public HashSet<StudentClass> getListOfClasses() {
-		return listOfClasses;
+	ArrayList<Subject> getListOfSubjects() {
+		return listOfSubjects;
 	}
 
 	// Show grades for each class in studentClass per subject
@@ -42,8 +37,8 @@ public class Teacher extends Person implements Evaluation {
 	}
 
 	/*
-	 * Send invitation for parent meeting to all student parents in particular
-	 * student class.
+	 * Send invitation for parent meeting to all student parents
+	 * in particular student class.
 	 */
 	void sendInvitation(StudentClass studentClass) {
 		for (Student student : studentClass.getStudents()) {
@@ -65,21 +60,9 @@ public class Teacher extends Person implements Evaluation {
 		// Print with Stream API
 		listOfClasses.forEach(System.out::println);
 
-		// Print without Stream API
-		// for (StudentClass studentClass : listOfClasses) {
-		// System.out.println(studentClass.getName());
-		// }
-
 		System.out.println("\nList of all subjects: ");
 
-		// Print with Stream API
 		listOfSubjects.forEach(System.out::println);
-
-		// Print without Stream API
-		// for (Subject subject : listOfSubjects) {
-		// System.out.println(subject);
-		// }
-
 	}
 
 	// Write remark to specific student
@@ -112,35 +95,30 @@ public class Teacher extends Person implements Evaluation {
 	// examine an entire StudentClass by a given subject and add a random Grade
 	// for each Student in the StudentClass
 	@Override
-	public void examineClass(StudentClass studentClass, Subject subject) {
+	public void examineClass(StudentClass studentClass, Subject subject) throws NoSuchStudentClassException {
 		// Examine with Stream API
-		if (this.getListOfClasses().contains(studentClass)) {
-			if(this.getListOfSubjects().contains(subject) && studentClass.inSubjects(subject, this)) {
+		if (this.listOfClasses.contains(studentClass)) {
+			if(this.listOfSubjects.contains(subject) && studentClass.inSubjects(subject, this)) {
 				studentClass.getStudents().forEach(s -> s.getSubjectGrade().get(subject).add(Grade.randomLetter()));
 			}
 		} else {
-			System.out.println("Exception 02");
+			throw new NoSuchStudentClassException();
 		}
-		// Examine without Stream API
-//		for (Student student : studentClass.getStudents()) {
-//			student.getSubjectGrade().get(subject).add(Grade.randomLetter());
-//		}
 	}
 
-	// examine a specific Student adding grade
+	// Examine a specific Student adding grade
 	// to the list of grades for the specified subject
 	@Override
-	public void examineStudent(Student student, Subject subject, Grade grade) throws NoSuchStudentException {
-		System.out.println(this.getListOfClasses().contains(student.getStudentClass()));
-		if (this.getListOfClasses().contains(student.getStudentClass())) {
-			if (this.getListOfSubjects().contains(subject) && student.getStudentClass().inSubjects(subject, this)) {
+	public void examineStudent(Student student, Subject subject, Grade grade) throws NoSuchStudentException, NoSuchSubjectException {
+		System.out.println(this.listOfClasses.contains(student.getStudentClass()));
+		if (this.listOfClasses.contains(student.getStudentClass())) {
+			if (this.listOfSubjects.contains(subject) && student.getStudentClass().inSubjects(subject, this)) {
 				student.getSubjectGrade().get(subject).add(grade);
 			} else {
-				System.out.println("Exception 03");
+				throw new NoSuchSubjectException();
 			}
 		} else {
 			throw new NoSuchStudentException();
-			//System.out.println("Exception 01");
 		}
 	}
 

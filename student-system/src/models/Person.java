@@ -8,7 +8,6 @@ public abstract class Person {
 	private String phoneNumber;
 	private String email;
 
-	// constructor
 	Person(String firstName, String lastName, String phoneNumber, String email) {
 		setFirstName(firstName);
 		setLastName(lastName);
