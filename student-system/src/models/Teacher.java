@@ -37,8 +37,8 @@ public class Teacher extends Person implements Evaluation {
 	}
 
 	/*
-	 * Send invitation for parent meeting to all student parents
-	 * in particular student class.
+	 * Send invitation for parent meeting to all student parents in particular
+	 * student class.
 	 */
 	void sendInvitation(StudentClass studentClass) {
 		for (Student student : studentClass.getStudents()) {
@@ -75,15 +75,15 @@ public class Teacher extends Person implements Evaluation {
 		student.setExcusedAbsences(currentAbsences + ABSENCE);
 	}
 
-	public void addUnvaccinatedAbsences(Student student) {
-		int currentAbsences = student.getUnvaccinatedAbsences();
-		student.setUnvaccinatedAbsences(currentAbsences + ABSENCE);
+	public void addUnexcusedAbsences(Student student) {
+		int currentAbsences = student.getUnexcusedAbsences();
+		student.setUnexcusedAbsences(currentAbsences + ABSENCE);
 	}
 
 	/*
-	 Add all students and their parents to attendants event list
-	 This is example for polymorphism usage
-	  */
+	 * Add all students and their parents to attendants event list This is
+	 * example for polymorphism usage
+	 */
 	public List<Person> arrangeGraduation(StudentClass studentClass) {
 		List<Person> attendants = new ArrayList<>(studentClass.getStudents());
 		studentClass.getStudents().forEach(s -> attendants.add(s.getParent()));
@@ -98,7 +98,7 @@ public class Teacher extends Person implements Evaluation {
 	public void examineClass(StudentClass studentClass, Subject subject) throws NoSuchStudentClassException {
 		// Examine with Stream API
 		if (this.listOfClasses.contains(studentClass)) {
-			if(this.listOfSubjects.contains(subject) && studentClass.inSubjects(subject, this)) {
+			if (this.listOfSubjects.contains(subject) && studentClass.inSubjects(subject, this)) {
 				studentClass.getStudents().forEach(s -> s.getSubjectGrade().get(subject).add(Grade.randomLetter()));
 			}
 		} else {
@@ -109,7 +109,8 @@ public class Teacher extends Person implements Evaluation {
 	// Examine a specific Student adding grade
 	// to the list of grades for the specified subject
 	@Override
-	public void examineStudent(Student student, Subject subject, Grade grade) throws NoSuchStudentException, NoSuchSubjectException {
+	public void examineStudent(Student student, Subject subject, Grade grade)
+			throws NoSuchStudentException, NoSuchSubjectException {
 		System.out.println(this.listOfClasses.contains(student.getStudentClass()));
 		if (this.listOfClasses.contains(student.getStudentClass())) {
 			if (this.listOfSubjects.contains(subject) && student.getStudentClass().inSubjects(subject, this)) {
