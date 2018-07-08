@@ -7,7 +7,7 @@ public class Parent extends Person {
 	private List<String> readNotifications;
 	private Deque<String> unreadNotification;
 
-	Parent(String firstName, String lastName, String phoneNumber, String email) {
+	public Parent(String firstName, String lastName, String phoneNumber, String email) {
 		super(firstName, lastName, phoneNumber, email);
 		children = new ArrayList<>();
 		readNotifications = new ArrayList<>();

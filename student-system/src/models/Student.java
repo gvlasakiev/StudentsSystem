@@ -14,7 +14,7 @@ public class Student extends Person {
 	private int excusedAbsences = 0;
 	private int unexcusedAbsences = 0;
 
-	Student(String firstName, String lastName, Parent parent, String phoneNumber, String email) {
+	public Student(String firstName, String lastName, Parent parent, String phoneNumber, String email) {
 		super(firstName, lastName, phoneNumber, email);
 
 		setParent(parent);
@@ -39,21 +39,29 @@ public class Student extends Person {
 		parent.getChildren().add(this);
 	}
 
-	List<String> getRemarks() {
+	public List<String> getRemarks() {
 		return remarks;
 	}
 
-	Map<Subject, List<Grade>> getSubjectGrade() {
+	public Map<Subject, List<Grade>> getSubjectGrade() {
 		return subjectGrade;
 	}
 
-	StudentClass getStudentClass() {
+	public StudentClass getStudentClass() {
 		return studentClass;
 	}
 
-	void setStudentClass(StudentClass studentClass) {
+	public void setStudentClass(StudentClass studentClass) {
 		this.studentClass = studentClass;
 		studentClass.getStudents().add(this);
+	}
+
+	public int getExcusedAbsences() {
+		return excusedAbsences;
+	}
+
+	public void setExcusedAbsences(int excusedAbsences) {
+		this.excusedAbsences = excusedAbsences;
 	}
 
 	@Override
@@ -63,18 +71,10 @@ public class Student extends Person {
 		System.out.printf("Email: %s", super.getEmail());
 	}
 
-	int getExcusedAbsences() {
-		return excusedAbsences;
-	}
-
-	void setExcusedAbsences(int excusedAbsences) {
-		this.excusedAbsences = excusedAbsences;
-	}
-
 	/*
 	 * Print all student grades by particular subject
 	 */
-	void showGrades() {
+	public void showGrades() {
 		System.out.println("Grades:");
 		for (Map.Entry<Subject, List<Grade>> subjectListEntry : subjectGrade.entrySet()) {
 			System.out.print(subjectListEntry.getKey() + " - ");
@@ -89,17 +89,17 @@ public class Student extends Person {
 		}
 	}
 
-	void showAbsences() {
+	public void showAbsences() {
 		System.out.println("Excused Absences: " + excusedAbsences);
 		System.out.println("Unexcused Absences: " + unexcusedAbsences);
 	}
 
-	void showRemarks() {
+	public void showRemarks() {
 		System.out.println("Show Remarks:");
 		remarks.forEach(System.out::println);
 	}
 
-	void showAll() {
+	public void showAll() {
 		showInfo();
 		showGrades();
 		showRemarks();
