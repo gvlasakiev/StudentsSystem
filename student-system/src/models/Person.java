@@ -8,48 +8,48 @@ public abstract class Person {
 	private String phoneNumber;
 	private String email;
 
-	Person(String firstName, String lastName, String phoneNumber, String email) {
+	public Person(String firstName, String lastName, String phoneNumber, String email) {
 		setFirstName(firstName);
 		setLastName(lastName);
 		setPhoneNumber(phoneNumber);
 		setEmail(email);
 	}
 
-	String getFirstName() {
+	public String getFirstName() {
 		return firstName;
 	}
 
-	void setFirstName(String firstName) {
+	public void setFirstName(String firstName) {
 		// Add Exception
 		if (Pattern.matches("[A-Z][a-z-]{1,20}", firstName)) {
 			this.firstName = firstName;
 		}
 	}
 
-	String getLastName() {
+	public String getLastName() {
 		return lastName;
 	}
 
-	void setLastName(String lastName) {
+	public void setLastName(String lastName) {
 		// Add Exception
 		if (Pattern.matches("[A-Z][a-z-]{1,20}", lastName)) {
 			this.lastName = lastName;
 		}
 	}
 
-	String getPhoneNumber() {
+	public String getPhoneNumber() {
 		return phoneNumber;
 	}
 
-	void setPhoneNumber(String phoneNumber) {
+	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
 
-	String getEmail() {
+	public String getEmail() {
 		return email;
 	}
 
-	void setEmail(String email) {
+	public void setEmail(String email) {
 		this.email = email;
 	}
 

@@ -13,11 +13,11 @@ public class Teacher extends Person implements Evaluation {
 		listOfSubjects = new ArrayList<>();
 	}
 
-	HashSet<StudentClass> getListOfClasses() {
+	public HashSet<StudentClass> getListOfClasses() {
 		return listOfClasses;
 	}
 
-	ArrayList<Subject> getListOfSubjects() {
+	public ArrayList<Subject> getListOfSubjects() {
 		return listOfSubjects;
 	}
 
@@ -40,7 +40,7 @@ public class Teacher extends Person implements Evaluation {
 	 * Send invitation for parent meeting to all student parents in particular
 	 * student class.
 	 */
-	void sendInvitation(StudentClass studentClass) {
+	public void sendInvitation(StudentClass studentClass) {
 		for (Student student : studentClass.getStudents()) {
 			Parent currentParent = student.getParent();
 			String message = String.format(
