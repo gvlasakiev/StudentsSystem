@@ -12,4 +12,4 @@ Team Star lord:
 # Class Diagram
 ![alt text](https://github.com/gvlasakiev/StudentsSystem/blob/master/student-system/src/UML/uml-diagram.png)
 
-[GitHub Page](https://github.com/gvlasakiev/StudentsSystem)
+ - ## [GitHub Page](https://github.com/gvlasakiev/StudentsSystem)
