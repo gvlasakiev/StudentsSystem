@@ -24,7 +24,7 @@ public class Teacher extends Person implements Evaluation {
     void printGrades(StudentClass studentClass, Subject subject) {
         if (this.listOfClasses.contains(studentClass) && this.listOfSubjects.contains(subject)) {
             System.out.println("Subject: " + subject);
-            System.out.println("Showing grades for " + studentClass.getName() + " :");
+            System.out.println("Showing grades for " + studentClass.getName() + ":");
             for (Student student : studentClass.getStudents()) {
                 System.out.print(student.toString() + " ");
                 System.out.println(student.getSubjectGrade().get(subject).toString());
