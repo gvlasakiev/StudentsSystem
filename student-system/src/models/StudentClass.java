@@ -8,7 +8,7 @@ import java.util.Map;
 class StudentClass {
 	private List<Student> students;
 
-    private Map<Subject, Teacher> subjects;
+	private Map<Subject, Teacher> subjects;
 	private String name;
 
 	public StudentClass(String name) {
@@ -21,7 +21,7 @@ class StudentClass {
 		return name;
 	}
 
-	public void setName(String name) {
+	private void setName(String name) {
 		this.name = name;
 	}
 
@@ -29,7 +29,7 @@ class StudentClass {
 		return students;
 	}
 
-	public Map<Subject, Teacher> getSubjects() {
+	private Map<Subject, Teacher> getSubjects() {
 		return subjects;
 	}
 
@@ -48,15 +48,10 @@ class StudentClass {
 	public void addSubject(Subject subject, Teacher teacher) {
 		getSubjects().put(subject, teacher);
 
-		// Print with Stream API
+		// Add subject with Stream API
 		this.getStudents().forEach(s -> s.getSubjectGrade().put(subject, new ArrayList<>()));
-        // Add subject to teacher class
+		// Add subject to teacher class
 		teacher.getListOfSubjects().add(subject);
 		teacher.getListOfClasses().add(this);
-		// Print without Stream API
-//        for (Student student : this.getStudents()) {
-//            student.getSubjectGrade().put(subject, new ArrayList<Grade>());
-//        }
 	}
-
 }
