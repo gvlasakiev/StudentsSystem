@@ -14,7 +14,7 @@ public class Student extends Person {
 	private int excusedAbsences = 0;
 	private int unexcusedAbsences = 0;
 
-	public Student(String firstName, String lastName, Parent parent, String phoneNumber, String email) {
+	Student(String firstName, String lastName, Parent parent, String phoneNumber, String email) {
 		super(firstName, lastName, phoneNumber, email);
 
 		setParent(parent);
@@ -22,15 +22,15 @@ public class Student extends Person {
 		subjectGrade = new HashMap<>();
 	}
 
-	public int getUnexcusedAbsences() {
+	int getUnexcusedAbsences() {
 		return unexcusedAbsences;
 	}
 
-	public void setUnexcusedAbsences(int unexcusedAbsences) {
+	void setUnexcusedAbsences(int unexcusedAbsences) {
 		this.unexcusedAbsences = unexcusedAbsences;
 	}
 
-	public Parent getParent() {
+	Parent getParent() {
 		return parent;
 	}
 
@@ -39,28 +39,28 @@ public class Student extends Person {
 		parent.getChildren().add(this);
 	}
 
-	public List<String> getRemarks() {
+	List<String> getRemarks() {
 		return remarks;
 	}
 
-	public Map<Subject, List<Grade>> getSubjectGrade() {
+	Map<Subject, List<Grade>> getSubjectGrade() {
 		return subjectGrade;
 	}
 
-	public StudentClass getStudentClass() {
+	StudentClass getStudentClass() {
 		return studentClass;
 	}
 
-	public void setStudentClass(StudentClass studentClass) {
+	void setStudentClass(StudentClass studentClass) {
 		this.studentClass = studentClass;
 		studentClass.getStudents().add(this);
 	}
 
-	public int getExcusedAbsences() {
+	int getExcusedAbsences() {
 		return excusedAbsences;
 	}
 
-	public void setExcusedAbsences(int excusedAbsences) {
+	void setExcusedAbsences(int excusedAbsences) {
 		this.excusedAbsences = excusedAbsences;
 	}
 
@@ -74,7 +74,7 @@ public class Student extends Person {
 	/*
 	 * Print all student grades by particular subject
 	 */
-	public void showGrades() {
+	void showGrades() {
 		System.out.println("Grades:");
 		for (Map.Entry<Subject, List<Grade>> subjectListEntry : subjectGrade.entrySet()) {
 			System.out.print(subjectListEntry.getKey() + " - ");
@@ -89,17 +89,17 @@ public class Student extends Person {
 		}
 	}
 
-	public void showAbsences() {
+	void showAbsences() {
 		System.out.println("Excused Absences: " + excusedAbsences);
 		System.out.println("Unexcused Absences: " + unexcusedAbsences);
 	}
 
-	public void showRemarks() {
+	void showRemarks() {
 		System.out.println("Show Remarks:");
 		remarks.forEach(System.out::println);
 	}
 
-	public void showAll() {
+	void showAll() {
 		showInfo();
 		showGrades();
 		showRemarks();

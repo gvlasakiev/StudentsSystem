@@ -7,18 +7,18 @@ public class Parent extends Person {
 	private List<String> readNotifications;
 	private Deque<String> unreadNotification;
 
-	public Parent(String firstName, String lastName, String phoneNumber, String email) {
+	Parent(String firstName, String lastName, String phoneNumber, String email) {
 		super(firstName, lastName, phoneNumber, email);
 		children = new ArrayList<>();
 		readNotifications = new ArrayList<>();
 		unreadNotification = new ArrayDeque<>();
 	}
 
-	public Deque<String> getUnreadNotification() {
+	Deque<String> getUnreadNotification() {
 		return unreadNotification;
 	}
 
-	public List<Student> getChildren() {
+	List<Student> getChildren() {
 		return children;
 	}
 
@@ -36,11 +36,11 @@ public class Parent extends Person {
 		}
 	}
 
-	public void showStudentInfo(Student student) {
+	void showStudentInfo(Student student) {
 		student.showAll();
 	}
 
-	public void excuseAbsences(Student student, int numberAbsences) throws NoSoMuchUnexcusedAbsences {
+	void excuseAbsences(Student student, int numberAbsences) throws NoSoMuchUnexcusedAbsences {
 		if (student.getUnexcusedAbsences() >= numberAbsences) {
 			student.setExcusedAbsences(student.getExcusedAbsences() + numberAbsences);
 			student.setUnexcusedAbsences(student.getUnexcusedAbsences() - numberAbsences);

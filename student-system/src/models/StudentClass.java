@@ -11,13 +11,13 @@ class StudentClass {
 	private Map<Subject, Teacher> subjects;
 	private String name;
 
-	public StudentClass(String name) {
+	StudentClass(String name) {
 		setName(name);
 		students = new ArrayList<>();
 		subjects = new HashMap<>();
 	}
 
-	public String getName() {
+	String getName() {
 		return name;
 	}
 
@@ -25,7 +25,7 @@ class StudentClass {
 		this.name = name;
 	}
 
-	public List<Student> getStudents() {
+	List<Student> getStudents() {
 		return students;
 	}
 
@@ -34,18 +34,18 @@ class StudentClass {
 	}
 
 	// Adding a Student to the StudentClass
-	public void addStudent(Student student) {
+	void addStudent(Student student) {
 		getStudents().add(student);
 		student.setStudentClass(this);
 	}
 
-	public boolean inSubjects(Subject subject, Teacher teacher) {
+	boolean inSubjects(Subject subject, Teacher teacher) {
 		final Teacher value = subjects.get(subject);
 		return value != null && value.equals(teacher);
 	}
 
 	// Adding a Subject and a respective Teacher
-	public void addSubject(Subject subject, Teacher teacher) {
+	void addSubject(Subject subject, Teacher teacher) {
 		getSubjects().put(subject, teacher);
 
 		// Add subject with Stream API
