@@ -4,71 +4,65 @@ public class Main {
 
 	public static void main(String[] args) throws NoSuchStudentException, NoSuchSubjectException,
 			NoSuchStudentClassException, NoSoMuchUnexcusedAbsences {
-		Parent newParent = new Parent("Ivan", "Ivanow", "0877314151", "joro@gmail.com");
-		Student newStudent = new Student("Georgi", "Dimitrow", newParent, "0866435675", "gogo@gmail.com");
-		Student newStudent2 = new Student("Georgi", "Dimitrow", newParent, "0866435675", "gogo@gmail.com");
-		// newStudent.setParent(newParent);
-		// System.out.println(newStudent.getParent().getFirstName());
-		Teacher newTeacher = new Teacher("Geno", "Uvardow", "0886112233", "hoho@gmail.com");
-		Teacher newTeacher2 = new Teacher("Geno", "Uvardow", "0886112233", "hoho@gmail.com");
-		// examineStudent
-		StudentClass newClass = new StudentClass("9A");
-		StudentClass newClass2 = new StudentClass("8A");
+		Parent parent = new Parent("Ivan", "Ivanow", "0877314151", "joro@gmail.com");
+		Parent parent2 = new Parent("Gosho", "Goshev", "0877314151", "goshaka@gmail.com");
 
-		newClass.addStudent(newStudent);
-		newClass2.addStudent(newStudent2);
+		Student student = new Student("Georgi", "Dimitrow", parent, "0866435675", "gogo@gmail.com");
+		Student student2 = new Student("Ivan", "Petrov", parent, "0866435675", "ivan@gmail.com");
+		Student student3 = new Student("Rayko", "Raykov", parent2, "0866435675", "rayko@gmail.com");
+		Student student4 = new Student("Miro", "Peev", parent2, "0866435675", "miro@gmail.com");
 
-		newClass.addSubject(Subject.ART, newTeacher);
-		newClass.addSubject(Subject.MATH, newTeacher2);
+		Teacher teacher = new Teacher("Geno", "Uvardow", "0886112233", "hoho@gmail.com");
+		Teacher teacher2 = new Teacher("Teodor", "Petrov", "0886112233", "tpetrov@gmail.com");
+		Teacher teacher3 = new Teacher("Pesho", "Peshev", "0886112233", "ppeshev@gmail.com");
 
-		newTeacher.examineStudent(newStudent, Subject.ART, Grade.FAIR);
-		newTeacher.addUnexcusedAbsences(newStudent);
+		StudentClass studentClass = new StudentClass("9A");
+		StudentClass studentClass2 = new StudentClass("4B");
 
-		newStudent.showGrades();
+		studentClass.addStudent(student);
+		studentClass.addStudent(student2);
+		studentClass2.addStudent(student3);
+		studentClass2.addStudent(student4);
+
+		studentClass.addSubject(Subject.ART, teacher);
+		studentClass.addSubject(Subject.MATH, teacher2);
+		studentClass.addSubject(Subject.CHEMISTRY, teacher2);
+
+		studentClass2.addSubject(Subject.MATH, teacher2);
+		studentClass2.addSubject(Subject.LITERATURE, teacher3);
+
+		teacher.examineStudent(student, Subject.ART, Grade.FAIR);
+		teacher2.examineStudent(student, Subject.MATH, Grade.EXCELLENT);
+		teacher2.examineStudent(student, Subject.MATH, Grade.EXCELLENT);
+		teacher2.examineStudent(student2, Subject.MATH, Grade.EXCELLENT);
+		teacher2.examineStudent(student2, Subject.MATH, Grade.VERY_GOOD);
+
+		teacher3.examineStudent(student3, Subject.LITERATURE, Grade.VERY_GOOD);
+		teacher3.examineStudent(student3, Subject.LITERATURE, Grade.POOR);
+		teacher3.examineStudent(student3, Subject.LITERATURE, Grade.FAIR);
+
+		teacher2.addUnexcusedAbsences(student3);
+		teacher2.addUnexcusedAbsences(student4);
+		teacher2.addUnexcusedAbsences(student4);
+		teacher2.addExcusedAbsences(student4);
+		teacher.addUnexcusedAbsences(student);
+
+		student.showGrades();
 		System.out.println();
-		newStudent.showAbsences();
+		student4.showAbsences();
 		System.out.println();
 
-		newParent.excuseAbsences(newStudent, 1);
-		newStudent.showInfo();
+		parent.excuseAbsences(student, 1);
 		System.out.println();
-		newTeacher.sendInvitation(newClass);
 
-		newParent.showUnreadNotifications();
+		student.showInfo();
+		System.out.println();
 
-//		newStudent.setStudentClass(newClass);
-//		newStudent2.setStudentClass(newClass2);
-//		newClass.addSubject(Subject.ECONOMY, newTeacher);
-//		newClass.addSubject(Subject.ART, newTeacher);
-//		newClass.addSubject(Subject.CHEMISTRY, newTeacher);
-//
-//		newClass2.addSubject(Subject.CHEMISTRY, newTeacher2);
-//		newClass2.addSubject(Subject.ART, newTeacher2);
-//
-//		newTeacher.getListOfClasses().add(newClass);
-//
-//		// newTeacher.getListOfClasses().add();
-//
-//		newTeacher.examineStudent(newStudent2, Subject.ART, Grade.GOOD);
-//		newTeacher.examineStudent(newStudent, Subject.ART, Grade.EXCELLENT);
-//		newTeacher.examineStudent(newStudent, Subject.ART, Grade.GOOD);
-//		newTeacher.examineStudent(newStudent, Subject.ECONOMY, Grade.EXCELLENT);
-//		newTeacher.examineStudent(newStudent, Subject.ECONOMY, Grade.GOOD);
-//		// newTeacher.examineStudent(newStudent, Subject.CHEMISTRY, Grade.GOOD);
-//
-//		System.out.println("inMap = " + newClass.inSubjects(Subject.CHEMISTRY, newTeacher2));
-//
-//		newTeacher.examineClass(newClass2, Subject.ART);
-//		for (int a = 0; a < 45; a++) {
-//			newTeacher.addUnexcusedAbsences(newStudent);
-//		}
-//		newParent.showStudentInfo(newStudent);
-//		newParent.excuseAbsences(newStudent, 32);
-//
-//		newParent.showStudentInfo(newStudent);
+		teacher.sendInvitation(studentClass);
 
-		// System.out.println(newTeacher.toString());
+		parent.showUnreadNotifications();
 
-		// newStudent.showGrades();
+		System.out.println();
+		teacher3.printGrades(studentClass2, Subject.LITERATURE);
 	}
 }

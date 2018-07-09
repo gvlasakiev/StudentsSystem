@@ -21,7 +21,7 @@ public class Teacher extends Person implements Evaluation {
         return listOfSubjects;
     }
 
-    public void printGrades(StudentClass studentClass, Subject subject) {
+    void printGrades(StudentClass studentClass, Subject subject) {
         if (this.listOfClasses.contains(studentClass) && this.listOfSubjects.contains(subject)) {
             System.out.println("Subject: " + subject);
             System.out.println("Showing grades for " + studentClass.getName() + " :");
@@ -40,9 +40,12 @@ public class Teacher extends Person implements Evaluation {
         for (Student student : studentClass.getStudents()) {
             Parent currentParent = student.getParent();
             String message = String.format(
-                    "Hello, Mr/Ms %s. I want to invite you at our school " + "for parent meeting on Friday.",
+                    "Hello, Mr/Ms %s. I want to invite you at our school for parent meeting on Friday.",
                     currentParent.getLastName());
-            currentParent.getUnreadNotification().push(message);
+
+            if (!currentParent.getUnreadNotification().contains(message)) {
+                currentParent.getUnreadNotification().push(message);
+            }
         }
     }
 
@@ -64,7 +67,7 @@ public class Teacher extends Person implements Evaluation {
         student.getRemarks().add(remark);
     }
 
-    public void addExcusedAbsences(Student student) {
+    void addExcusedAbsences(Student student) {
         int currentAbsences = student.getExcusedAbsences();
         student.setExcusedAbsences(currentAbsences + ABSENCE);
     }
