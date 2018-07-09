@@ -20,7 +20,6 @@ public abstract class Person {
 	}
 
 	void setFirstName(String firstName) {
-		// Add Exception
 		if (Pattern.matches("[A-Z][a-z-]{1,20}", firstName)) {
 			this.firstName = firstName;
 		}
@@ -31,7 +30,6 @@ public abstract class Person {
 	}
 
 	void setLastName(String lastName) {
-		// Add Exception
 		if (Pattern.matches("[A-Z][a-z-]{1,20}", lastName)) {
 			this.lastName = lastName;
 		}

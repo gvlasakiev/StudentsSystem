@@ -50,7 +50,7 @@ public class Parent extends Person {
 		}
 	}
 
-	public void showUnreadNotifications() {
+	void showUnreadNotifications() {
 		while (!unreadNotification.isEmpty()) {
 			String currentNotification = unreadNotification.pop();
 			System.out.println(currentNotification);
@@ -59,8 +59,6 @@ public class Parent extends Person {
 	}
 
 	public void showReadNotifications() {
-		// Print with Stream API
 		readNotifications.forEach(System.out::println);
 	}
-
 }

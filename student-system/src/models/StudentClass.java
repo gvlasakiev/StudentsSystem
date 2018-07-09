@@ -33,7 +33,6 @@ class StudentClass {
 		return subjects;
 	}
 
-	// Adding a Student to the StudentClass
 	void addStudent(Student student) {
 		getStudents().add(student);
 		student.setStudentClass(this);
@@ -44,13 +43,10 @@ class StudentClass {
 		return value != null && value.equals(teacher);
 	}
 
-	// Adding a Subject and a respective Teacher
 	void addSubject(Subject subject, Teacher teacher) {
 		getSubjects().put(subject, teacher);
 
-		// Add subject with Stream API
 		this.getStudents().forEach(s -> s.getSubjectGrade().put(subject, new ArrayList<>()));
-		// Add subject to teacher class
 		teacher.getListOfSubjects().add(subject);
 		teacher.getListOfClasses().add(this);
 	}

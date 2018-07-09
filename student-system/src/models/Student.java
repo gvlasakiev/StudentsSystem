@@ -71,9 +71,6 @@ public class Student extends Person {
 		System.out.printf("Email: %s", super.getEmail());
 	}
 
-	/*
-	 * Print all student grades by particular subject
-	 */
 	void showGrades() {
 		System.out.println("Grades:");
 		for (Map.Entry<Subject, List<Grade>> subjectListEntry : subjectGrade.entrySet()) {

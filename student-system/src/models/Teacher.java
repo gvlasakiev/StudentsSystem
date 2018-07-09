@@ -21,7 +21,6 @@ public class Teacher extends Person implements Evaluation {
         return listOfSubjects;
     }
 
-    // Show grades for each class in studentClass per subject
     public void printGrades(StudentClass studentClass, Subject subject) {
         if (this.listOfClasses.contains(studentClass) && this.listOfSubjects.contains(subject)) {
             System.out.println("Subject: " + subject);
@@ -36,11 +35,8 @@ public class Teacher extends Person implements Evaluation {
         }
     }
 
-    /*
-     * Send invitation for parent meeting to all student parents in particular
-     * student class.
-     */
-    public void sendInvitation(StudentClass studentClass) {
+
+    void sendInvitation(StudentClass studentClass) {
         for (Student student : studentClass.getStudents()) {
             Parent currentParent = student.getParent();
             String message = String.format(
@@ -57,7 +53,6 @@ public class Teacher extends Person implements Evaluation {
         System.out.printf("Email: %s\n", super.getEmail());
         System.out.println("List of all classes: ");
 
-        // Print with Stream API
         listOfClasses.forEach(System.out::println);
 
         System.out.println("\nList of all subjects: ");
@@ -65,7 +60,6 @@ public class Teacher extends Person implements Evaluation {
         listOfSubjects.forEach(System.out::println);
     }
 
-    // Write remark to specific student
     public void remarkStudent(Student student, String remark) {
         student.getRemarks().add(remark);
     }
@@ -80,10 +74,6 @@ public class Teacher extends Person implements Evaluation {
         student.setUnexcusedAbsences(currentAbsences + ABSENCE);
     }
 
-    /*
-     * Add all students and their parents to attendants event list This is
-     * example for polymorphism usage
-     */
     public List<Person> arrangeGraduation(StudentClass studentClass) {
         List<Person> attendants = new ArrayList<>(studentClass.getStudents());
         studentClass.getStudents().forEach(s -> attendants.add(s.getParent()));
@@ -91,12 +81,9 @@ public class Teacher extends Person implements Evaluation {
         return attendants;
     }
 
-    // Examine-methods from Evaluation interface
-    // examine an entire StudentClass by a given subject and add a random Grade
-    // for each Student in the StudentClass
+
     @Override
     public void examineClass(StudentClass studentClass, Subject subject) throws NoSuchStudentClassException {
-        // Examine with Stream API
         if (this.listOfClasses.contains(studentClass)) {
             if (this.listOfSubjects.contains(subject) && studentClass.inSubjects(subject, this)) {
                 studentClass.getStudents().forEach(s -> s.getSubjectGrade().get(subject).add(Grade.randomLetter()));
@@ -106,12 +93,9 @@ public class Teacher extends Person implements Evaluation {
         }
     }
 
-    // Examine a specific Student adding grade
-    // to the list of grades for the specified subject
-    @Override
 
+    @Override
     public void examineStudent(Student student, Subject subject, Grade grade) throws NoSuchStudentException, NoSuchSubjectException {
-        //System.out.println(this.getListOfClasses().contains(student.getStudentClass()));
         if (this.getListOfClasses().contains(student.getStudentClass())) {
             if (this.getListOfSubjects().contains(subject) && student.getStudentClass().inSubjects(subject, this)) {
                 student.getSubjectGrade().get(subject).add(grade);

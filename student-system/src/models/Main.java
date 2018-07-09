@@ -14,36 +14,58 @@ public class Main {
 		// examineStudent
 		StudentClass newClass = new StudentClass("9A");
 		StudentClass newClass2 = new StudentClass("8A");
-		newStudent.setStudentClass(newClass);
-		newStudent2.setStudentClass(newClass2);
-		newClass.addSubject(Subject.ECONOMY, newTeacher);
+
+		newClass.addStudent(newStudent);
+		newClass2.addStudent(newStudent2);
+
 		newClass.addSubject(Subject.ART, newTeacher);
-		newClass.addSubject(Subject.CHEMISTRY, newTeacher);
+		newClass.addSubject(Subject.MATH, newTeacher2);
 
-		newClass2.addSubject(Subject.CHEMISTRY, newTeacher2);
-		newClass2.addSubject(Subject.ART, newTeacher2);
+		newTeacher.examineStudent(newStudent, Subject.ART, Grade.FAIR);
+		newTeacher.addUnexcusedAbsences(newStudent);
 
-		newTeacher.getListOfClasses().add(newClass);
+		newStudent.showGrades();
+		System.out.println();
+		newStudent.showAbsences();
+		System.out.println();
 
-		// newTeacher.getListOfClasses().add();
+		newParent.excuseAbsences(newStudent, 1);
+		newStudent.showInfo();
+		System.out.println();
+		newTeacher.sendInvitation(newClass);
 
-		newTeacher.examineStudent(newStudent2, Subject.ART, Grade.GOOD);
-		newTeacher.examineStudent(newStudent, Subject.ART, Grade.EXCELLENT);
-		newTeacher.examineStudent(newStudent, Subject.ART, Grade.GOOD);
-		newTeacher.examineStudent(newStudent, Subject.ECONOMY, Grade.EXCELLENT);
-		newTeacher.examineStudent(newStudent, Subject.ECONOMY, Grade.GOOD);
-		// newTeacher.examineStudent(newStudent, Subject.CHEMISTRY, Grade.GOOD);
+		newParent.showUnreadNotifications();
 
-		System.out.println("inMap = " + newClass.inSubjects(Subject.CHEMISTRY, newTeacher2));
-
-		newTeacher.examineClass(newClass2, Subject.ART);
-		for (int a = 0; a < 45; a++) {
-			newTeacher.addUnexcusedAbsences(newStudent);
-		}
-		newParent.showStudentInfo(newStudent);
-		newParent.excuseAbsences(newStudent, 32);
-
-		newParent.showStudentInfo(newStudent);
+//		newStudent.setStudentClass(newClass);
+//		newStudent2.setStudentClass(newClass2);
+//		newClass.addSubject(Subject.ECONOMY, newTeacher);
+//		newClass.addSubject(Subject.ART, newTeacher);
+//		newClass.addSubject(Subject.CHEMISTRY, newTeacher);
+//
+//		newClass2.addSubject(Subject.CHEMISTRY, newTeacher2);
+//		newClass2.addSubject(Subject.ART, newTeacher2);
+//
+//		newTeacher.getListOfClasses().add(newClass);
+//
+//		// newTeacher.getListOfClasses().add();
+//
+//		newTeacher.examineStudent(newStudent2, Subject.ART, Grade.GOOD);
+//		newTeacher.examineStudent(newStudent, Subject.ART, Grade.EXCELLENT);
+//		newTeacher.examineStudent(newStudent, Subject.ART, Grade.GOOD);
+//		newTeacher.examineStudent(newStudent, Subject.ECONOMY, Grade.EXCELLENT);
+//		newTeacher.examineStudent(newStudent, Subject.ECONOMY, Grade.GOOD);
+//		// newTeacher.examineStudent(newStudent, Subject.CHEMISTRY, Grade.GOOD);
+//
+//		System.out.println("inMap = " + newClass.inSubjects(Subject.CHEMISTRY, newTeacher2));
+//
+//		newTeacher.examineClass(newClass2, Subject.ART);
+//		for (int a = 0; a < 45; a++) {
+//			newTeacher.addUnexcusedAbsences(newStudent);
+//		}
+//		newParent.showStudentInfo(newStudent);
+//		newParent.excuseAbsences(newStudent, 32);
+//
+//		newParent.showStudentInfo(newStudent);
 
 		// System.out.println(newTeacher.toString());
 
