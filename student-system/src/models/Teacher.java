@@ -131,7 +131,7 @@ public class Teacher extends Person implements Evaluation {
 	// to the list of grades for the specified subject
 	@Override
 	public void examineStudent(Student student, Subject subject, Grade grade) throws NoSuchStudentException {
-		System.out.println(this.getListOfClasses().contains(student.getStudentClass()));
+		//System.out.println(this.getListOfClasses().contains(student.getStudentClass()));
 		if (this.getListOfClasses().contains(student.getStudentClass())) {
 			if (this.getListOfSubjects().contains(subject) && student.getStudentClass().inSubjects(subject, this)) {
 				student.getSubjectGrade().get(subject).add(grade);
